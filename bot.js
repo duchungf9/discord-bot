@@ -17,7 +17,7 @@ client.on('message', message => {
     if (message.content === 'ping') {
         message.reply('pong');
     }
-    if(message.content == "sủa"){
+    if(message.content === "sủa"){
         message.reply("gâu gâu, chị Vũ chỉ mới dạy em sủa thôi!");
     }
 
