@@ -13,7 +13,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-
+    message.reply('pong');
     if (message.content === 'ping') {
 
     message.reply('pong');
