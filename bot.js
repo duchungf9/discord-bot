@@ -35,4 +35,4 @@ channel.send(`Chào bé đến với SBTC nhaaa, ${member}, mãi yêu!`);
 
 // THIS  MUST  BE  THIS  WAY
 
-client.login(BOT_TOKEN);//dBOT_TOKEN is the Client Secret
+client.login(process.env.BOT_TOKEN);//dBOT_TOKEN is the Client Secret
