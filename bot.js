@@ -13,10 +13,9 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-    message.reply('pong');
-    if (message.content === 'ping') {
+    if (message.content === 'sủa đi minh') {
 
-    message.reply('pong');
+    message.reply('gâu gâu');
 
 }
 
