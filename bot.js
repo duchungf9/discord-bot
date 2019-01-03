@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-
+console.log('địt');
 
 client.on('ready', () => {
 
