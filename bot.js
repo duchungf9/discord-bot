@@ -35,4 +35,4 @@ channel.send(`Chào bé đến với SBTC nhaaa, ${member}, mãi yêu!`);
 
 // THIS  MUST  BE  THIS  WAY
 
-client.login("NTMwNDI4NzYxNzY2NjI1Mjkw.Dw_gCw.0u313TXOoN55yGNrWHNLHE9Hx3g");//dBOT_TOKEN is the Client Secret
+client.login(BOT_TOKEN);//dBOT_TOKEN is the Client Secret
