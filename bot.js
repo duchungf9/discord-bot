@@ -12,7 +12,17 @@ client.on('ready', () => {
 
 });
 client.on('message', message => {
-    if (message.content === 'sủa đi minh') { message.reply('gâu gâu');}
+    if (message.content === 'sủa đi minh') {
+        const embed = new RichEmbed()
+        // Set the title of the field
+            .setTitle('một chú chó tên Minh béo bèn xuất hiện')
+            // Set the color of the embed
+            .setColor(0xFF0000)
+            // Set the main content of the embed
+            .setDescription('Gâu gâu gâu!');
+        // Send the embed to the same channel as the message
+        message.channel.send(embed);
+    }
     if (message.content.toUpperCase() === `.$`) {
         money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
             message.channel.send(`bạn đang có `+i.money+" Sò");
