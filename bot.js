@@ -13,6 +13,7 @@ client.on('ready', () => {
 });
 client.on('message', message => {
     if (message.content === 'sủa đi minh') {
+    console.log(message.author);
     const exampleEmbed = new Discord.RichEmbed()
         .setColor('#0099ff')
         .setTitle('Em là Minh béo')
