@@ -38,7 +38,7 @@ client.on('message', message => {
 }
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 100);
-    if(1==1){
+    if(random==7){
         currentDropCoin = So;
         message.channel.send("Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+" sò này!!!:sadd:");
     }
