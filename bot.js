@@ -19,6 +19,7 @@ client.on('message', message => {
             .setColor(0xFF0000)
             // Set the main content of the embed
             .setDescription('Gâu gâu gâu!');
+            .setMessage('Gâu gâu gâu!');
         // Send the embed to the same channel as the message
     console.log(embed);
         message.channel.send(embed);
