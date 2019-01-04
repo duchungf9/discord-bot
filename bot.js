@@ -13,10 +13,10 @@ client.on('ready', () = > {
 
 
 client.on('message', message = > {
-    let prefix = ".";
-    if (message.content.toUpperCase() === `${prefix}BALANCE`) {
+    var prefix = ".";
+    if (message.content.toUpperCase() === prefix+`BALANCE`) {
             money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
-                message.channel.send(`**Balance:** ${i.money}`);
+                message.channel.send(`**Balance:**`+i.money);
             })
     }
     if(message.content === 'sủa đi minh'){
