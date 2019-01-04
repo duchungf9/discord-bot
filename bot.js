@@ -1,6 +1,7 @@
-const {RichEmbed,Discord,Client} = require('discord.js');
+const Discord = require('discord.js');
 const money = require('discord-money');
-const client = new Client();
+const client = new Discord.Client();
+
 console.log('địt');
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
@@ -12,18 +13,23 @@ client.on('ready', () => {
 });
 client.on('message', message => {
     if (message.content === 'sủa đi minh') {
-        const embed = new RichEmbed()
-        // Set the title of the field
-            .setTitle('một chú chó tên Minh béo bèn xuất hiện')
-            // Set the color of the embed
-            .setColor(0xFF0000)
-            // Set the main content of the embed
-            .setDescription('Gâu gâu gâu!')
-            .setMessage('Gâu gâu gâu!');
-        // Send the embed to the same channel as the message
-    console.log(embed);
-        message.channel.send(embed);
-    }
+    const exampleEmbed = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .setTitle('Some title')
+        .setURL('https://discord.js.org/')
+        .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+        .setDescription('Some description here')
+        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .addField('Regular field title', 'Some value here')
+        .addBlankField()
+        .addField('Inline field title', 'Some value here', true)
+        .addField('Inline field title', 'Some value here', true)
+        .addField('Inline field title', 'Some value here', true)
+        .setImage('https://i.imgur.com/wSTFkRM.png')
+        .setTimestamp()
+        .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+
+}
     if (message.content.toUpperCase() === `.$`) {
         money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
             message.channel.send(`bạn đang có `+i.money+" Sò");
