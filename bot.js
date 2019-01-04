@@ -38,16 +38,18 @@ client.on('message', message => {
 }
     var random  = Math.floor(Math.random() * 8);
     var So = Math.floor(Math.random() * 100);
+    var soCurrency = "2ST4m28";
+    var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     console.log(random);
     if(random==7){
         currentDropCoin = So;
-        message.channel.send("Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+" sò này!!!:sadd:");
+        message.channel.send("Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+" sịp này!!!:sadd:");
     }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
             console.log(message.author.username);
             money.updateBal(message.author.id, currentDropCoin ).then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
-                message.channel.send("Hiện "+message.author.username+" đang có: "+i.money+" sò.");
+                message.channel.send("Hiện "+message.author.username+" đang có: "+i.money+" sịp."+soIcon);
                 currentDropCoin = 0;
             })
         }
