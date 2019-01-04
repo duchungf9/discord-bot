@@ -11,20 +11,12 @@ client.on('ready', () => {
     console.log('I am ready!');
 
 });
-
-
-
 client.on('message', message => {
-    if (message.content === 'sủa đi minh') {
-
-    message.reply('gâu gâu');
-
-}
-if (message.content.toUpperCase() === `.BALANCE`) {
-
-    money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
-        message.channel.send(`**Balance:** `+i.money);
-})
+    if (message.content === 'sủa đi minh') { message.reply('gâu gâu');}
+    if (message.content.toUpperCase() === `.BALANCE`) {
+        money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
+            message.channel.send(`**Balance:** `+i.money);
+    })
 
 
 }
