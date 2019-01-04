@@ -21,7 +21,7 @@ client.on('message', message => {
         .setDescription('Gâu gâu gâu!')
         .setThumbnail('http://sohanews.sohacdn.com/thumb_w/660/2017/photo1499416230355-1499416230506-0-0-262-421-crop-1499416275290.jpg')
 
-        .setImage('http://lifecompass.vn/wp-content/uploads/2015/03/cho-sua.jpg')
+        .setImage('https://i.ytimg.com/vi/xFHaOwmVAjY/hqdefault.jpg')
         .setTimestamp();
 
     message.channel.send({embed:exampleEmbed});
