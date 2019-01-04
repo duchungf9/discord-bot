@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-
+const money = require('discord-money');
 const client = new Discord.Client();
 
 console.log('địt');
@@ -20,7 +20,14 @@ client.on('message', message => {
     message.reply('gâu gâu');
 
 }
+if (message.content.toUpperCase() === `.BALANCE`) {
 
+    money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
+        message.channel.send(`**Balance:** `+i.money);
+})
+
+
+}
 });
 
 // Create an event listener for new guild members
