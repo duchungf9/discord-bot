@@ -13,10 +13,11 @@ client.on('ready', () => {
 });
 client.on('message', message => {
     if (message.content === 'sủa đi minh') { message.reply('gâu gâu');}
-    if (message.content.toUpperCase() === `.BALANCE`) {
+    if (message.content.toUpperCase() === `.$`) {
         money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
-            message.channel.send(`**Balance:** `+i.money);
+            message.channel.send(`bạn đang có `+i.money+" Sò");
     })
+
 
 
 }
