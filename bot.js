@@ -43,13 +43,19 @@ client.on('message', message => {
     console.log(random);
     if(random==7){
         currentDropCoin = So;
-        message.channel.send("Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!:sadd:");
+        message.channel.send({embed: {
+                color: 3447003,
+                description: "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!"
+            }});
     }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
             console.log(message.author.username);
             money.updateBal(message.author.id, currentDropCoin ).then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
-                message.channel.send("Hiện "+message.author.username+" đang có: "+i.money+" sịp."+soIcon);
+                message.channel.send({embed: {
+                        color: 3447003,
+                        description: "Hiện "+message.author.username+" đang có: "+i.money+" sịp."+soIcon
+                    }});
                 currentDropCoin = 0;
             })
         }
