@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const money = require('discord-money');
 
 const client = new Discord.Client();
 
@@ -13,12 +12,6 @@ client.on('ready', () = > {
 
 
 client.on('message', message = > {
-    var prefix = ".";
-    if (message.content.toUpperCase() === prefix+`BALANCE`) {
-            money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
-                message.channel.send(`**Balance:**`+i.money);
-            })
-    }
     if(message.content === 'sủa đi minh'){
         message.reply('gâu gâu');
     }
