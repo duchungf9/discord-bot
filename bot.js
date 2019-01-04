@@ -1,7 +1,6 @@
-const Discord = require('discord.js');
+const {RichEmbed,Discord} = require('discord.js');
 const money = require('discord-money');
 const client = new Discord.Client();
-
 console.log('địt');
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
