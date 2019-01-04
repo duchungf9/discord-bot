@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const money = require('discord-money');
 const client = new Discord.Client();
-
+var currentDropCoin = 0;
 console.log('địt');
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
@@ -13,7 +13,6 @@ client.on('ready', () => {
 });
 client.on('message', message => {
     if (message.content === 'sủa đi minh') {
-    console.log(message.author);
     const exampleEmbed = new Discord.RichEmbed()
         .setColor('#0099ff')
         .setTitle('Em là Minh béo')
@@ -37,6 +36,20 @@ client.on('message', message => {
 
 
 }
+    var random  = Math.floor(Math.random() * 100);
+    var So = Math.floor(Math.random() * 100);
+    if(1==1){
+        currentDropCoin = So;
+        message.channel.send("Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+" sò này!!!:sadd:");
+    }
+    if(message.content === ".pick"){
+        if(currentDropCoin!=0){
+            money.updateBal(message.author.id, currentDropCoin ).then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
+                message.channel.send("Hiện "+message.author.username+" đang có: "+i.money+" sò.");
+                currentDropCoin = 0;
+            })
+        }
+    }
 });
 
 // Create an event listener for new guild members
