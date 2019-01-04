@@ -44,6 +44,7 @@ client.on('message', message => {
     }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
+            console.log(message.author.username);
             money.updateBal(message.author.id, currentDropCoin ).then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
                 message.channel.send("Hiện "+message.author.username+" đang có: "+i.money+" sò.");
                 currentDropCoin = 0;
