@@ -30,7 +30,10 @@ client.on('message', message => {
 }
     if (message.content.toUpperCase() === `.$`) {
         money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
-            message.channel.send(`bạn đang có `+i.money+" Sò");
+            message.channel.send({embed: {
+                    color: 3447003,
+                    description: `bạn đang có `+i.money+" sịp"
+                }});
     })
 
 
