@@ -36,7 +36,7 @@ client.on('message', message => {
 
 
 }
-    var random  = Math.floor(Math.random() * 7);
+    var random  = Math.floor(Math.random() * 8);
     var So = Math.floor(Math.random() * 100);
     console.log(random);
     if(random==7){
