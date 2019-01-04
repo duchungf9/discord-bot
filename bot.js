@@ -43,7 +43,7 @@ client.on('message', message => {
     console.log(random);
     if(random==7){
         currentDropCoin = So;
-        message.channel.send("Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+" sịp này!!!:sadd:");
+        message.channel.send("Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!:sadd:");
     }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
