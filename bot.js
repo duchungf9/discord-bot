@@ -39,8 +39,8 @@ client.on('message', message => {
 
 
 }
-    var random  = Math.floor(Math.random() * 8);
-    var So = Math.floor(Math.random() * 100);
+    var random  = Math.floor(Math.random() * 50);
+    var So = Math.floor(Math.random() * 20);
     var soCurrency = "2ST4m28";
     var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     console.log(random);
