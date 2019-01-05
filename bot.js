@@ -17,7 +17,7 @@ var db = admin.database();
 var ref = db.ref("/");
 var usersRef = ref.child("users/yudan");
 var sipOfUser = usersRef.once('value',function(snapshot){
-    console.log(snapshot.val());
+    console.log(snapshot.val().sip);
 });
 client.on('ready', () => {
 
