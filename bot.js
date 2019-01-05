@@ -51,23 +51,7 @@ client.on('message', message => {
         minhbeosua(message);
     }
     if (message.content.toUpperCase() === `.$`) {
-        var usersRef = ref.child("users/"+$userName);
-        var _user = usersRef.once('value',function(snapshot){
-            var siphientai = 0;
-            if(snapshot.exists()){
-                    siphientai = snapshot.val().sip;
-            }else{
-                usersRef.set({
-                    sip:0
-                })
-            }
-            message.channel.send({embed: {
-                    color: 3447003,
-                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
-                }});
-            currentDropCoin = 0;
-        });
-        message.delete(5000);
+        pickSip(message);
 
     }
     var random  = Math.floor(Math.random() * 100);
@@ -133,6 +117,25 @@ function minhbeosua(message){
     message.channel.send({embed:exampleEmbed});
 }
 
+function pickSip(message){
+    var usersRef = ref.child("users/"+message.author.username);
+    var _user = usersRef.once('value',function(snapshot){
+        var siphientai = 0;
+        if(snapshot.exists()){
+            siphientai = snapshot.val().sip;
+        }else{
+            usersRef.set({
+                sip:0
+            })
+        }
+        message.channel.send({embed: {
+            color: 3447003,
+            description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
+        }});
+        currentDropCoin = 0;
+    });
+    message.delete(5000);
+}
 
 // THIS  MUST  BE  THIS  WAY
 
