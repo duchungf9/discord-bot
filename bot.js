@@ -44,7 +44,7 @@ client.on('message', message => {
                     siphientai = snapshot.val().sip;
             }else{
                 usersRef.set({
-                    $userName:{sip:0}
+                    sip:0
                 })
             }
             message.channel.send({embed: {
@@ -79,7 +79,7 @@ client.on('message', message => {
                     });
 
                 }else{
-                    usersRef.set({[$userName] :0})
+                    usersRef.set({sip :0})
                 }
                 message.channel.send({embed: {
                         color: 3447003,
