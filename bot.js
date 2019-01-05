@@ -79,7 +79,8 @@ client.on('message', message => {
                     });
 
                 }else{
-                    usersRef.set({sip :0})
+                    usersRef.set({sip :currentDropCoin})
+                    siphientai = currentDropCoin;
                 }
                 message.channel.send({embed: {
                         color: 3447003,
