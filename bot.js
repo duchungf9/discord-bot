@@ -64,7 +64,7 @@ client.on('message', message => {
         message.channel.send({embed: {
                 color: 3447003,
                 description: "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!"
-            }},{file:"https://quiznhe.com/wp-content/uploads/2018/10/1_1540604675.png"});
+            },{file:"https://quiznhe.com/wp-content/uploads/2018/10/1_1540604675.png"}});
     }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
