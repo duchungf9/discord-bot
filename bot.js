@@ -28,13 +28,19 @@ client.on('message', message => {
         // Or just do message.delete();
     }
     if(chuiBay.some(word => message.content.includes(word))){
+        //https://i.imgur.com/EB6rf21.png
+        var arrayImage = [
+            "https://i.imgur.com/EB6rf21.png",
+            "https://i.imgur.com/2jUrUAb.png"
+        ];
+        var index = Math.floor(Math.random() * 100);
+
         var txtEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setTitle('Sao, mày thích gì?')
             .setAuthor('feeder.tap.choi', 'http://www.elleman.vn/wp-content/uploads/2016/10/25/bi-quyet-luyen-tap-de-co-bap-tay-to-elleman-2.jpg', 'https://xvideos.com')
             .setDescription('Chửi bố mày xao?!')
-            .setThumbnail('https://i.imgur.com/2jUrUAb.png')
-            .setImage('https://i.imgur.com/2jUrUAb.png')
+            .setImage(arrayImage[index]);
             .setTimestamp();
 
         message.channel.send({embed:txtEmbed});
