@@ -17,6 +17,8 @@ var ref = db.ref("/");
 client.on('ready', () => {
     console.log('I am ready!');
 });
+const talkedRecently = new Set();
+
 client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
     const chuiBay = ["dmm"];
@@ -51,7 +53,7 @@ client.on('message', message => {
         minhbeosua(message);
     }
     if (message.content.toUpperCase() === `.$`) {
-        pickSip(message,soIcon);
+        checkSip(message,soIcon);
     }
     randomSip(message);
 
@@ -80,6 +82,21 @@ client.on('message', message => {
         }
         message.delete(5000);
     }
+    if(message.content == ".timely"){
+        if (talkedRecently.has(message.author.id)){
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "hmm.. đợi tiếp đi bé!",
+            }});
+            return;
+        }else{
+            talkedRecently.add(message.author.id);
+            setTimeout(() => {
+                // Removes the user from the set after 2.5 seconds
+                talkedRecently.delete(message.author.id);
+            }, 2500);
+        }
+    }
 });
 
 // Create an event listener for new guild members
@@ -106,7 +123,7 @@ function minhbeosua(message){
     message.channel.send({embed:exampleEmbed});
 }
 
-function pickSip(message,soIcon){
+function checkSip(message,soIcon){
     var usersRef = ref.child("users/"+message.author.username);
     var _user = usersRef.once('value',function(snapshot){
         var siphientai = 0;
