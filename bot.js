@@ -31,11 +31,10 @@ client.on('message', message => {
         var txtEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setTitle('Sao, mày thích gì?')
-            .setURL('https://xvideoscom/')
             .setAuthor('feeder.tap.choi', 'http://www.elleman.vn/wp-content/uploads/2016/10/25/bi-quyet-luyen-tap-de-co-bap-tay-to-elleman-2.jpg', 'https://xvideos.com')
-            .setDescription('Gâu gâu gâu!')
-            .setThumbnail('https://cdn.discordapp.com/attachments/370950852179132416/531044635167031331/unknown.png')
-            .setImage('https://cdn.discordapp.com/attachments/370950852179132416/531044635167031331/unknown.png')
+            .setDescription('Chửi bố mày xao?!')
+            .setThumbnail('https://i.imgur.com/2jUrUAb.png')
+            .setImage('https://i.imgur.com/2jUrUAb.png')
             .setTimestamp();
 
         message.channel.send({embed:txtEmbed});
