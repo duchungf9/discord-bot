@@ -13,7 +13,14 @@ admin.initializeApp({
     databaseURL: "https://discd-5cc3d.firebaseio.com"
 });
 console.log('-------');
-
+var db = admin.database();
+var ref = db.ref("/");
+var usersRef = ref.child("users");
+    usersRef.set({
+            yudan:{
+                sip:100
+            }
+        });
 client.on('ready', () => {
 
     console.log('I am ready!');
