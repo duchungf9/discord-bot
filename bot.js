@@ -15,12 +15,10 @@ admin.initializeApp({
 console.log('-------');
 var db = admin.database();
 var ref = db.ref("/");
-var usersRef = ref.child("users");
-    usersRef.set({
-            yudan:{
-                sip:100
-            }
-        });
+var usersRef = ref.child("users/yudan");
+var sipOfUser = usersRef.once('value',function(snapshot){
+    console.log(snapshot);
+});
 client.on('ready', () => {
 
     console.log('I am ready!');
@@ -58,7 +56,6 @@ client.on('message', message => {
     var So = Math.floor(Math.random() * 20);
     var soCurrency = "2ST4m28";
     var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
-    console.log(random);
     if(random==7){
         currentDropCoin = So;
         message.channel.send({embed: {
@@ -69,13 +66,23 @@ client.on('message', message => {
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
             console.log(message.author.username);
-            money.updateBal(message.author.id, currentDropCoin ).then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
-                message.channel.send({embed: {
-                        color: 3447003,
-                        description: "Hiện "+message.author.username+" đang có: "+i.money+" sịp."+soIcon
-                    }});
-                currentDropCoin = 0;
-            })
+
+            $userName = message.author.username;
+            var usersRef = ref.child("users/"+$userName);
+            var sipOfUser = usersRef.once('value',function(){
+                console.log('xxxx');
+            });
+            // usersRef.set({
+            //     $userName:{
+            //         sip:100
+            //     }
+            // });
+            message.channel.send({embed: {
+                    color: 3447003,
+                    description: "Hiện "+message.author.username+" đang có: "+i.money+" sịp."+soIcon
+                }});
+            currentDropCoin = 0;
+
         }
     }
 });
