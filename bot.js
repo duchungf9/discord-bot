@@ -20,12 +20,14 @@ client.on('ready', () => {
 client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
     const chuiBay = ["dmm"];
+    $userName = message.author.username;
+    var soCurrency = "2ST4m28";
+    var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     if( swearWords.some(word => message.content.includes(word)) ) {
         message.channel.send({embed: {
                 color: 3447003,
                 description: "dạ, là tuyệt vời ông mặt trời ạ!, ư ư!",
             }});
-        // Or just do message.delete();
     }
     if(chuiBay.some(word => message.content.includes(word))){
         //https://i.imgur.com/EB6rf21.png
@@ -45,27 +47,14 @@ client.on('message', message => {
 
         message.channel.send({embed:txtEmbed});
     }
-    $userName = message.author.username;
-    var soCurrency = "2ST4m28";
-    var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     if (message.content === 'sủa đi minh') {
         minhbeosua(message);
     }
     if (message.content.toUpperCase() === `.$`) {
         pickSip(message,soIcon);
-
     }
-    var random  = Math.floor(Math.random() * 100);
-    var So = Math.floor(Math.random() * 20);
-    console.log(random);
+    randomSip(message);
 
-    if(random==7){
-        currentDropCoin = So;
-        message.channel.send({embed: {
-                color: 3447003,
-                description: "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!",
-            }});
-    }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
             var usersRef = ref.child("users/"+$userName);
@@ -135,6 +124,19 @@ function pickSip(message,soIcon){
         currentDropCoin = 0;
     });
     message.delete(5000);
+}
+
+function randomSip(message,soIcon){
+    var random  = Math.floor(Math.random() * 100);
+    var So = Math.floor(Math.random() * 20);
+    console.log(random);
+    if(random==7){
+        currentDropCoin = So;
+        message.channel.send({embed: {
+            color: 3447003,
+            description: "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!",
+        }});
+    }
 }
 
 // THIS  MUST  BE  THIS  WAY
