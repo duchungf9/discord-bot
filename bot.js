@@ -15,7 +15,7 @@ admin.initializeApp({
 console.log('-------');
 var db = admin.database();
 var ref = db.ref("/");
-var usersRef = ref.child("users/yudan");
+var usersRef = ref.child("users/test");
 var sipOfUser = usersRef.once('value',function(snapshot){
     console.log(snapshot.val().sip);
 });
@@ -66,11 +66,10 @@ client.on('message', message => {
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
             console.log(message.author.username);
-
             $userName = message.author.username;
             var usersRef = ref.child("users/"+$userName);
-            var sipOfUser = usersRef.once('value',function(){
-                console.log('xxxx');
+            var sipOfUser = usersRef.once('value',function(snapshot){
+                console.log(snapshot.val().sip);
             });
             // usersRef.set({
             //     $userName:{
