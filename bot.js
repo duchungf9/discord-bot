@@ -40,7 +40,7 @@ client.on('message', message => {
             .setTitle('Sao, mày thích gì?')
             .setAuthor('feeder.tap.choi', 'http://www.elleman.vn/wp-content/uploads/2016/10/25/bi-quyet-luyen-tap-de-co-bap-tay-to-elleman-2.jpg', 'https://xvideos.com')
             .setDescription('Chửi bố mày xao?!')
-            .setImage(arrayImage[index]);
+            .setImage(arrayImage[index])
             .setTimestamp();
 
         message.channel.send({embed:txtEmbed});
