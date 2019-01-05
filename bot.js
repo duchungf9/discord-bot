@@ -5,14 +5,13 @@ var currentDropCoin = 0;
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
 var admin = require("firebase-admin");
+
 var serviceAccount = require("./discd-5cc3d-firebase-adminsdk-hfbcp-b2d2c0ca62.json");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://discd-5cc3d.firebaseio.com"
 });
 console.log('-------');
-var soCurrency = "2ST4m28";
-var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
 var db = admin.database();
 var ref = db.ref("/");
 client.on('ready', () => {
@@ -52,13 +51,14 @@ client.on('message', message => {
         minhbeosua(message);
     }
     if (message.content.toUpperCase() === `.$`) {
-        pickSip(message);
+        pickSip(message,soIcon);
 
     }
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
     console.log(random);
-
+    var soCurrency = "2ST4m28";
+    var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     if(random==7){
         currentDropCoin = So;
         message.channel.send({embed: {
@@ -117,7 +117,7 @@ function minhbeosua(message){
     message.channel.send({embed:exampleEmbed});
 }
 
-function pickSip(message){
+function pickSip(message,soIcon){
     var usersRef = ref.child("users/"+message.author.username);
     var _user = usersRef.once('value',function(snapshot){
         var siphientai = 0;
