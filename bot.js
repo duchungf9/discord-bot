@@ -33,7 +33,7 @@ client.on('message', message => {
             "https://i.imgur.com/EB6rf21.png",
             "https://i.imgur.com/2jUrUAb.png"
         ];
-        var index = Math.floor(Math.random() * 100);
+        var index = Math.floor(Math.random() * 2);
 
         var txtEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
