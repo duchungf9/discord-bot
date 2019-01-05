@@ -19,12 +19,26 @@ client.on('ready', () => {
 });
 client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
+    const chuiBay = ["dmm"];
     if( swearWords.some(word => message.content.includes(word)) ) {
         message.channel.send({embed: {
                 color: 3447003,
                 description: "dạ, là tuyệt vời ông mặt trời ạ!, ư ư!",
             }});
         // Or just do message.delete();
+    }
+    if(chuiBay.some(word => message.content.includes(word))){
+        var txtEmbed = new Discord.RichEmbed()
+            .setColor('#0099ff')
+            .setTitle('Sao, mày thích gì?')
+            .setURL('https://xvideoscom/')
+            .setAuthor('feeder.tap.choi', 'http://www.elleman.vn/wp-content/uploads/2016/10/25/bi-quyet-luyen-tap-de-co-bap-tay-to-elleman-2.jpg', 'https://xvideos.com')
+            .setDescription('Gâu gâu gâu!')
+            .setThumbnail('https://cdn.discordapp.com/attachments/370950852179132416/531044635167031331/unknown.png')
+            .setImage('https://cdn.discordapp.com/attachments/370950852179132416/531044635167031331/unknown.png')
+            .setTimestamp();
+
+        message.channel.send({embed:txtEmbed});
     }
     $userName = message.author.username;
 
