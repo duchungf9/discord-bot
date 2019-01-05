@@ -18,6 +18,14 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 client.on('message', message => {
+    const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
+    if( swearWords.some(word => message.content.includes(word)) ) {
+        message.channel.send({embed: {
+                color: 3447003,
+                description: "dạ, là tuyệt vời ông mặt trời ạ!, ư ư!",
+            }});
+        // Or just do message.delete();
+    }
     $userName = message.author.username;
 
     if (message.content === 'sủa đi minh') {
