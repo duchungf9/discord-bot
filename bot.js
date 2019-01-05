@@ -64,9 +64,9 @@ client.on('message', message => {
             var _user = usersRef.once('value',function(snapshot){
                 if(snapshot.exists()){
                     var siphientai = snapshot.val().sip;
-                    var newSip = siphientai+currentDropCoin;
+                    siphientai = siphientai+currentDropCoin;
                     usersRef.ref($userName).update({
-                        sip:newSip
+                        sip:siphientai
                     });
 
                 }else{
@@ -74,18 +74,15 @@ client.on('message', message => {
                         $userName:{sip:siphientai}
                     })
                 }
+                message.channel.send({embed: {
+                        color: 3447003,
+                        description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
+                    }});
+                currentDropCoin = 0;
 
             });
-            // usersRef.set({
-            //     $userName:{
-            //         sip:100
-            //     }
-            // });
-            message.channel.send({embed: {
-                    color: 3447003,
-                    description: "Hiện "+message.author.username+" đang có: "+i.money+" sịp."+soIcon
-                }});
-            currentDropCoin = 0;
+
+
 
         }
     }
