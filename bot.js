@@ -2,8 +2,16 @@ const Discord = require('discord.js');
 const money = require('discord-money');
 const client = new Discord.Client();
 var currentDropCoin = 0;
-console.log('địt');
 console.log(process.env.BOT_TOKEN);
+console.log('-------');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("/discd-5cc3d-firebase-adminsdk-hfbcp-b2d2c0ca62.json");
+console.log(serviceAccount);
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://discd-5cc3d.firebaseio.com"
+});
 console.log('-------');
 
 client.on('ready', () => {
