@@ -55,10 +55,7 @@ client.on('message', message => {
             currentDropCoin = 0;
 
         });
-        message.channel.send({embed: {
-                color: 3447003,
-                description: `bạn đang có `+i.money+" sịp"
-            }});
+
     }
     var random  = Math.floor(Math.random() * 50);
     var So = Math.floor(Math.random() * 20);
@@ -84,7 +81,7 @@ client.on('message', message => {
                     });
 
                 }else{
-                    usersRef.set({[$userName] : 'MoreStuff'})
+                    usersRef.set({[$userName] :0})
                 }
                 message.channel.send({embed: {
                         color: 3447003,
