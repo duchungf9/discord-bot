@@ -18,6 +18,8 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 client.on('message', message => {
+    $userName = message.author.username;
+
     if (message.content === 'sủa đi minh') {
     const exampleEmbed = new Discord.RichEmbed()
         .setColor('#0099ff')
@@ -35,16 +37,29 @@ client.on('message', message => {
 
 }
     if (message.content.toUpperCase() === `.$`) {
-        money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
+        var usersRef = ref.child("users/"+$userName);
+
+        var _user = usersRef.once('value',function(snapshot){
+            var siphientai = 0;
+            if(snapshot.exists()){
+                var siphientai = snapshot.val().sip;
+            }else{
+                usersRef.set({
+                    $userName:{sip:0}
+                })
+            }
             message.channel.send({embed: {
                     color: 3447003,
-                    description: `bạn đang có `+i.money+" sịp"
+                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
                 }});
-    })
+            currentDropCoin = 0;
 
-
-
-}
+        });
+        message.channel.send({embed: {
+                color: 3447003,
+                description: `bạn đang có `+i.money+" sịp"
+            }});
+    }
     var random  = Math.floor(Math.random() * 50);
     var So = Math.floor(Math.random() * 20);
     var soCurrency = "2ST4m28";
@@ -58,8 +73,6 @@ client.on('message', message => {
     }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
-            console.log(message.author.username);
-            $userName = message.author.username;
             var usersRef = ref.child("users/"+$userName);
             var _user = usersRef.once('value',function(snapshot){
                 if(snapshot.exists()){
@@ -81,9 +94,6 @@ client.on('message', message => {
                 currentDropCoin = 0;
 
             });
-
-
-
         }
     }
 });
