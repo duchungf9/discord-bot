@@ -79,6 +79,7 @@ client.on('message', message => {
                 }});
             currentDropCoin = 0;
         });
+        message.delete(10000);
 
     }
     var random  = Math.floor(Math.random() * 100);
