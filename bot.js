@@ -38,11 +38,10 @@ client.on('message', message => {
 }
     if (message.content.toUpperCase() === `.$`) {
         var usersRef = ref.child("users/"+$userName);
-
         var _user = usersRef.once('value',function(snapshot){
             var siphientai = 0;
             if(snapshot.exists()){
-                var siphientai = snapshot.val().sip;
+                    siphientai = snapshot.val().sip;
             }else{
                 usersRef.set({
                     $userName:{sip:0}
@@ -53,7 +52,6 @@ client.on('message', message => {
                     description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
                 }});
             currentDropCoin = 0;
-
         });
 
     }
