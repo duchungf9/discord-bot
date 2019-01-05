@@ -79,8 +79,7 @@ client.on('message', message => {
                 if(snapshot.exists()){
                     var siphientai = snapshot.val().sip;
                     siphientai = siphientai+currentDropCoin;
-                    console.log($userName);
-                    usersRef.ref($userName).update({
+                    usersRef.ref("/"+$userName).update({
                         sip:siphientai
                     });
 
