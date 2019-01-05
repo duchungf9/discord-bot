@@ -86,7 +86,7 @@ client.on('message', message => {
         console.log('timely');
         if (talkedRecently.has(message.author.id)){
             console.log(message.author.id+'timely1');
-            talkedRecently.delete(message.author.id);
+            // talkedRecently.delete(message.author.id);
             message.channel.send({embed: {
                 color: 3447003,
                 description: "hmm.. đợi tiếp đi bé!",
@@ -117,7 +117,7 @@ client.on('message', message => {
             setTimeout(() => {
                 // Removes the user from the set after 2.5 seconds
                 talkedRecently.delete(message.author.id);
-            }, 1000*3600);
+            }, 1000*1800);
         }
     }
 });
