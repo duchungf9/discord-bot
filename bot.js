@@ -46,7 +46,8 @@ client.on('message', message => {
         message.channel.send({embed:txtEmbed});
     }
     $userName = message.author.username;
-
+    var soCurrency = "2ST4m28";
+    var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     if (message.content === 'sủa đi minh') {
         minhbeosua(message);
     }
@@ -57,8 +58,7 @@ client.on('message', message => {
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
     console.log(random);
-    var soCurrency = "2ST4m28";
-    var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
+
     if(random==7){
         currentDropCoin = So;
         message.channel.send({embed: {
