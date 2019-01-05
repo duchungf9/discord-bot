@@ -54,7 +54,7 @@ client.on('message', message => {
         });
 
     }
-    var random  = Math.floor(Math.random() * 25);
+    var random  = Math.floor(Math.random() * 50);
     var So = Math.floor(Math.random() * 20);
     console.log(random);
     var soCurrency = "2ST4m28";
@@ -64,7 +64,6 @@ client.on('message', message => {
         message.channel.send({embed: {
                 color: 3447003,
                 description: "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!",
-                file:"https://quiznhe.com/wp-content/uploads/2018/10/1_1540604675.png"
             }});
     }
     if(message.content === ".pick"){
