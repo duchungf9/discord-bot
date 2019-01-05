@@ -54,7 +54,7 @@ client.on('message', message => {
         });
 
     }
-    var random  = Math.floor(Math.random() * 50);
+    var random  = Math.floor(Math.random() * 25);
     var So = Math.floor(Math.random() * 20);
     console.log(random);
     var soCurrency = "2ST4m28";
