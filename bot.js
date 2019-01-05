@@ -7,7 +7,6 @@ console.log('-------');
 var admin = require("firebase-admin");
 
 var serviceAccount = require("./discd-5cc3d-firebase-adminsdk-hfbcp-b2d2c0ca62.json");
-console.log(serviceAccount);
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://discd-5cc3d.firebaseio.com"
@@ -15,15 +14,8 @@ admin.initializeApp({
 console.log('-------');
 var db = admin.database();
 var ref = db.ref("/");
-var usersRef = ref.child("users/test");
-console.log(usersRef);
-var sipOfUser = usersRef.once('value',function(snapshot){
-    console.log(snapshot.val().sip);
-});
 client.on('ready', () => {
-
     console.log('I am ready!');
-
 });
 client.on('message', message => {
     if (message.content === 'sủa đi minh') {
@@ -69,8 +61,20 @@ client.on('message', message => {
             console.log(message.author.username);
             $userName = message.author.username;
             var usersRef = ref.child("users/"+$userName);
-            var sipOfUser = usersRef.once('value',function(snapshot){
-                console.log(snapshot.val().sip);
+            var _user = usersRef.once('value',function(snapshot){
+                if(snapshot.exists()){
+                    var siphientai = snapshot.val().sip;
+                    var newSip = siphientai+currentDropCoin;
+                    usersRef.ref($userName).update({
+                        sip:newSip
+                    });
+
+                }else{
+                    usersRef.set({
+                        $userName:{sip:siphientai}
+                    })
+                }
+
             });
             // usersRef.set({
             //     $userName:{
