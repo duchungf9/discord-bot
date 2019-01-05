@@ -28,7 +28,6 @@ client.on('message', message => {
         .setAuthor('Minh béo', 'http://sohanews.sohacdn.com/thumb_w/660/2017/photo1499416230355-1499416230506-0-0-262-421-crop-1499416275290.jpg', 'https://xvideos.com')
         .setDescription('Gâu gâu gâu!')
         .setThumbnail('http://sohanews.sohacdn.com/thumb_w/660/2017/photo1499416230355-1499416230506-0-0-262-421-crop-1499416275290.jpg')
-
         .setImage('https://i.ytimg.com/vi/xFHaOwmVAjY/hqdefault.jpg')
         .setTimestamp();
 
@@ -65,7 +64,7 @@ client.on('message', message => {
         message.channel.send({embed: {
                 color: 3447003,
                 description: "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!"
-            }});
+            }},{file:"https://quiznhe.com/wp-content/uploads/2018/10/1_1540604675.png"});
     }
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
