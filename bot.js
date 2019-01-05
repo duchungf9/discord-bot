@@ -86,7 +86,7 @@ client.on('message', message => {
         console.log('timely');
         if (talkedRecently.has(message.author.id)){
             console.log(message.author.id+'timely1');
-
+            talkedRecently.delete(message.author.id);
             message.channel.send({embed: {
                 color: 3447003,
                 description: "hmm.. đợi tiếp đi bé!",
@@ -94,7 +94,25 @@ client.on('message', message => {
             return;
         }else{
             console.log(message.author.id+'timely');
+            var usersRef = ref.child("users/"+message.author.username);
+            var _user = usersRef.once('value',function(snapshot){
+                if(snapshot.exists()){
+                    var siphientai = snapshot.val().sip;
+                    siphientai = siphientai+currentDropCoin;
+                    usersRef.update({
+                        sip:siphientai
+                    });
 
+                }else{
+                    usersRef.set({sip :currentDropCoin})
+                    siphientai = currentDropCoin;
+                }
+                message.channel.send({embed: {
+                    color: 3447003,
+                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
+                }});
+
+            });
             talkedRecently.add(message.author.id);
             setTimeout(() => {
                 // Removes the user from the set after 2.5 seconds
