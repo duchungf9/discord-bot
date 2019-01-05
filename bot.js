@@ -98,14 +98,14 @@ client.on('message', message => {
             var _user = usersRef.once('value',function(snapshot){
                 if(snapshot.exists()){
                     var siphientai = snapshot.val().sip;
-                    siphientai = siphientai+currentDropCoin;
+                    siphientai = siphientai+10;
                     usersRef.update({
                         sip:siphientai
                     });
 
                 }else{
-                    usersRef.set({sip :currentDropCoin})
-                    siphientai = currentDropCoin;
+                    usersRef.set({sip :10})
+                    siphientai = 10;
                 }
                 message.channel.send({embed: {
                     color: 3447003,
