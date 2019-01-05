@@ -119,6 +119,7 @@ client.on('message', message => {
                 talkedRecently.delete(message.author.id);
             }, 1000*1800);
         }
+        message.delete(2500);
     }
 });
 
