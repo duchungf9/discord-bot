@@ -16,6 +16,7 @@ console.log('-------');
 var db = admin.database();
 var ref = db.ref("/");
 var usersRef = ref.child("users/test");
+console.log(usersRef);
 var sipOfUser = usersRef.once('value',function(snapshot){
     console.log(snapshot.val().sip);
 });
