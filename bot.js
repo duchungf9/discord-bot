@@ -48,20 +48,8 @@ client.on('message', message => {
     $userName = message.author.username;
 
     if (message.content === 'sủa đi minh') {
-    const exampleEmbed = new Discord.RichEmbed()
-        .setColor('#0099ff')
-        .setTitle('Em là Minh béo')
-        .setURL('https://discord.js.org/')
-        .setAuthor('Minh béo', 'http://sohanews.sohacdn.com/thumb_w/660/2017/photo1499416230355-1499416230506-0-0-262-421-crop-1499416275290.jpg', 'https://xvideos.com')
-        .setDescription('Gâu gâu gâu!')
-        .setThumbnail('http://sohanews.sohacdn.com/thumb_w/660/2017/photo1499416230355-1499416230506-0-0-262-421-crop-1499416275290.jpg')
-        .setImage('https://i.ytimg.com/vi/xFHaOwmVAjY/hqdefault.jpg')
-        .setTimestamp();
-
-    message.channel.send({embed:exampleEmbed});
-
-
-}
+        minhbeosua(message);
+    }
     if (message.content.toUpperCase() === `.$`) {
         var usersRef = ref.child("users/"+$userName);
         var _user = usersRef.once('value',function(snapshot){
@@ -131,6 +119,19 @@ if (!channel) return;
 channel.send(`Chào bé đến với SBTC nhaaa, ${member}, mãi yêu!`);
 });
 
+function minhbeosua(message){
+    const exampleEmbed = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .setTitle('Em là Minh béo')
+        .setURL('https://discord.js.org/')
+        .setAuthor('Minh béo', 'http://sohanews.sohacdn.com/thumb_w/660/2017/photo1499416230355-1499416230506-0-0-262-421-crop-1499416275290.jpg', 'https://xvideos.com')
+        .setDescription('Gâu gâu gâu!')
+        .setThumbnail('http://sohanews.sohacdn.com/thumb_w/660/2017/photo1499416230355-1499416230506-0-0-262-421-crop-1499416275290.jpg')
+        .setImage('https://i.ytimg.com/vi/xFHaOwmVAjY/hqdefault.jpg')
+        .setTimestamp();
+
+    message.channel.send({embed:exampleEmbed});
+}
 
 
 // THIS  MUST  BE  THIS  WAY
