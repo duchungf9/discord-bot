@@ -6,7 +6,7 @@ console.log(process.env.BOT_TOKEN);
 console.log('-------');
 var admin = require("firebase-admin");
 
-var serviceAccount = require("/discd-5cc3d-firebase-adminsdk-hfbcp-b2d2c0ca62.json");
+var serviceAccount = require("./discd-5cc3d-firebase-adminsdk-hfbcp-b2d2c0ca62.json");
 console.log(serviceAccount);
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
