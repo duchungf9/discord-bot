@@ -84,9 +84,7 @@ client.on('message', message => {
                     });
 
                 }else{
-                    usersRef.set({
-                        {$userName}:{sip:siphientai}
-                    });
+                    usersRef.set({[$userName] : 'MoreStuff'})
                 }
                 message.channel.send({embed: {
                         color: 3447003,
