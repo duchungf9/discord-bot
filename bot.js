@@ -172,12 +172,17 @@ function checkSip(message,soIcon){
 function randomSip(message,soIcon){
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
+    var quoteRandom = [
+        "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!",
+        "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+soIcon+" chiếc quần xì bay xuống."
+    ];
+
     console.log(random);
     if(random==7){
         currentDropCoin = So;
         message.channel.send({embed: {
             color: 3447003,
-            description: "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!",
+            description: quoteRandom[Math.floor(Math.random() * quoteRandom.length+1)],
         }});
 }
 }
