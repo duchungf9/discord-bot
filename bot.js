@@ -123,6 +123,9 @@ client.on('message', message => {
     if(message.content === "mưa sịp"){
         muaSip(message,soIcon,client);
     }
+    if(message.content.startWith(".km")){
+        khoamom(message,soIcon);
+    }
 });
 
 // Create an event listener for new guild members
@@ -222,6 +225,57 @@ function cleanBot(message){
 }
 
 function leaderBoardSip(){
+
+}
+
+function khoamom(message,soIcon){
+
+    var usersRef = ref.child("users/"+message.author.username);
+    var _user = usersRef.once('value',function(snapshot){
+        if(snapshot.exists()){
+            var siphientai = snapshot.val().sip;
+            if(siphientai>=100){
+                siphientai = siphientai-100;
+                usersRef.update({
+                    sip:siphientai
+                });
+
+                const userToMute =  message.mentions.members.first();
+
+
+                // find the name of a role called Muted in the guild that the message
+                // was sent from
+                const muteRole = message.guild.roles.find("name", "Muted");
+
+                // add that role to the user that should be muted
+                userToMute.addRole(muteRole);
+
+                // the time it takes for the mute to be removed
+                // in miliseconds
+                const MUTE_TIME = 60 * 1000;
+
+                // wait MUTE_TIME miliseconds and then remove the role
+                setTimeout(() => {
+                    userToMute.removeRole(muteRole);
+                }, MUTE_TIME);
+
+                message.channel.send(`*${message.author.username} đã nhét 100 chiếc quần xì vào mõm ${userToMute.user.username},${userToMute.user.username}  đã bị khóa mõm trong ${MUTE_TIME / 60} seconds*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
+                return;
+
+            }
+
+        }else{
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "Cần ít nhất 100 sịp."+soIcon+" để khóa mõm bạn khác con ơi!"
+            }});
+        }
+
+        currentDropCoin = 0;
+
+    });
+    // message.delete(5000);
+    // cleanBot(message);
 
 }
 
