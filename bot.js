@@ -221,6 +221,10 @@ function cleanBot(message){
     });
 }
 
+function leaderBoardSip(){
+
+}
+
 // THIS  MUST  BE  THIS  WAY
 
 client.login(process.env.BOT_TOKEN);
