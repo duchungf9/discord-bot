@@ -182,7 +182,7 @@ function randomSip(message,soIcon){
         currentDropCoin = So;
         message.channel.send({embed: {
             color: 3447003,
-            description: quoteRandom[Math.floor(Math.random() * quoteRandom.length+1)],
+            description: quoteRandom[Math.floor(Math.random() * 3)],
         }});
 }
 }
