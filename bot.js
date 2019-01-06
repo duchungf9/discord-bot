@@ -245,7 +245,7 @@ function khoamom(message,soIcon){
                 // find the name of a role called Muted in the guild that the message
                 // was sent from
                 const muteRole = message.guild.roles.find("name", "Muted");
-
+                console.log(muteRole);
                 // add that role to the user that should be muted
                 userToMute.addRole(muteRole);
 
