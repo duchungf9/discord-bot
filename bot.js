@@ -241,7 +241,6 @@ function khoamom(message,soIcon){
                 });
 
                 const userToMute =  message.mentions.members.first();
-                userToMute.user.block();
 
                 // find the name of a role called Muted in the guild that the message
                 // was sent from
@@ -257,7 +256,6 @@ function khoamom(message,soIcon){
                 // wait MUTE_TIME miliseconds and then remove the role
                 setTimeout(() => {
                     userToMute.removeRole(muteRole);
-                    userToMute.user.unblock();
                 }, MUTE_TIME);
 
                 message.channel.send(`*${message.author.username} đã nhét 100 chiếc quần xì vào mõm ${userToMute.user.username},${userToMute.user.username}  đã bị khóa mõm trong ${MUTE_TIME / 60} giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
