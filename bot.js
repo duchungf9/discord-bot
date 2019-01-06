@@ -122,7 +122,7 @@ client.on('message', message => {
         message.delete(2500);
     }
     if(message.content === "mưa sịp"){
-        muaSip(message,soIcon);
+        muaSip(message,soIcon,client);
     }
 });
 
@@ -183,21 +183,23 @@ function randomSip(message,soIcon){
 }
 }
 
-function muaSip(message,soIcon){
-    currentDropCoin = 100;
-    //https://i.imgur.com/EB6rf21.png
+function muaSip(message,soIcon,client){
+    if(message.author.username == 'loandet' || message.author.username =='duchungf9'){
+        currentDropCoin = 100;
+        //https://i.imgur.com/EB6rf21.png
+        var index = Math.floor(Math.random() * 2);
 
-    var index = Math.floor(Math.random() * 2);
+        var txtEmbed = new Discord.RichEmbed()
+            .setColor('#0099ff')
+            .setTitle('ư ư ư, mưa sịp tới rồi!!')
+            .setAuthor('Thầy hiệu trưởng', 'http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg', 'https://xvideos.com')
+            .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc quần xì '+soIcon+' từ tầng thượng!!, nhặt mau các trò')
+            .setImage("http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg")
+            .setTimestamp();
 
-    var txtEmbed = new Discord.RichEmbed()
-        .setColor('#0099ff')
-        .setTitle('ư ư ư, mưa sịp tới rồi!!')
-        .setAuthor('Thầy hiệu trưởng', 'http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg', 'https://xvideos.com')
-        .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc quần xì '+soIcon+' từ tầng thượng!!, nhặt mau các trò')
-        .setImage("http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg")
-        .setTimestamp();
+        message.channel.send({embed:txtEmbed});
+    }
 
-    message.channel.send({embed:txtEmbed});
 }
 
 // THIS  MUST  BE  THIS  WAY
