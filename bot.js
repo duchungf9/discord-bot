@@ -241,7 +241,7 @@ function khoamom(message,soIcon){
                 });
 
                 const userToMute =  message.mentions.members.first();
-                userRoles = message.channel.server.rolesOf(userToMute);
+                userRoles = message.channel.server.roles(userToMute);
 
                 userRoles.forEach(function(role) {
                     for (var i = 0; i < resetRoles.length; i++) {
