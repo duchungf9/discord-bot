@@ -205,12 +205,11 @@ function muaSip(message,soIcon,client){
 function cleanBot(message){
     message.channel.fetchMessages().then(messages => {
         const botMessages = messages.filter(msg => msg.author.bot);
-        message.channel.bulkDelete(botMessages);
-        messagesDeleted = botMessages.array().length; // number of messages deleted
-
+        message.channel.bulkDelete(botMessages[0]);
+        // messagesDeleted = botMessages.array().length; // number of messages deleted
         // Logging the number of messages deleted on both the channel and console.
-        message.channel.send("Chị lao công chạy vội ra dọn sạch rác của thầy hiệu trưởng. Đã dọn được số rác là: " + messagesDeleted);
-        console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted)
+        // message.channel.send("Chị lao công chạy vội ra dọn sạch rác của thầy hiệu trưởng. Đã dọn được số rác là: " + messagesDeleted);
+        // console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted)
     }).catch(err => {
         console.log('Error while doing Bulk Delete');
         console.log(err);
