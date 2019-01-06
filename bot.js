@@ -79,6 +79,7 @@ client.on('message', message => {
             });
         }
         message.delete(5000);
+        cleanBot(message);
     }
     if(message.content === ".timely"){
         console.log('timely');
@@ -199,6 +200,21 @@ function muaSip(message,soIcon,client){
         message.delete(2000);
     }
 
+}
+
+function cleanBot(message){
+    message.channel.fetchMessages().then(messages => {
+        const botMessages = messages.filter(msg => msg.author.bot);
+        message.channel.bulkDelete(botMessages);
+        messagesDeleted = botMessages.array().length; // number of messages deleted
+
+        // Logging the number of messages deleted on both the channel and console.
+        message.channel.send("Deletion of messages successful. Total messages deleted: " + messagesDeleted);
+        console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted)
+    }).catch(err => {
+        console.log('Error while doing Bulk Delete');
+        console.log(err);
+    });
 }
 
 // THIS  MUST  BE  THIS  WAY
