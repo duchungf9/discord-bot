@@ -41,9 +41,7 @@ client.on('message', message => {
 
         var txtEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
-            .setTitle('Sao, mày thích gì?')
             .setAuthor('feeder.tap.choi', 'http://www.elleman.vn/wp-content/uploads/2016/10/25/bi-quyet-luyen-tap-de-co-bap-tay-to-elleman-2.jpg', 'https://xvideos.com')
-            .setDescription('Chửi bố mày xao?!')
             .setImage(arrayImage[index])
             .setTimestamp();
 
