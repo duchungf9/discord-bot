@@ -31,7 +31,7 @@ client.on('message', message => {
                 description: "dạ, là tuyệt vời ông mặt trời ạ!, ư ư!",
             }});
     }
-    if(chuiBay.some(word => message.content.includes(word))){
+    if(chuiBay.some(word => message.content.includes(word.toLowerCase()))){
         //https://i.imgur.com/EB6rf21.png
         var arrayImage = [
             "https://i.imgur.com/EB6rf21.png",
