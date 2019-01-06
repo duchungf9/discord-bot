@@ -123,7 +123,7 @@ client.on('message', message => {
     if(message.content === "mưa sịp"){
         muaSip(message,soIcon,client);
     }
-    if(message.content.startWith(".km")){
+    if(message.content.startsWith(".km")){
         khoamom(message,soIcon);
     }
 });
