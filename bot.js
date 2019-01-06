@@ -193,7 +193,7 @@ function muaSip(message,soIcon){
         .setColor('#0099ff')
         .setTitle('ư ư ư, mưa sịp tới rồi!!')
         .setAuthor('Thầy hiệu trưởng', 'http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg', 'https://xvideos.com')
-        .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc quần xì "+soIcon+" từ tầng thượng!!, nhặt mau các trò')
+        .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc quần xì '+soIcon+' từ tầng thượng!!, nhặt mau các trò')
         .setImage("http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg")
         .setTimestamp();
 
