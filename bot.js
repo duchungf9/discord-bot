@@ -53,7 +53,7 @@ client.on('message', message => {
     if (message.content.toUpperCase() === `.$`) {
         checkSip(message,soIcon);
     }
-    randomSip(message);
+    randomSip(message,soIcon);
 
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
