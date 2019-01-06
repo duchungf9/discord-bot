@@ -241,7 +241,28 @@ function khoamom(message,soIcon){
                 });
 
                 const userToMute =  message.mentions.members.first();
+                userRoles = message.channel.server.rolesOf(userToMute);
 
+                userRoles.forEach(function(role) {
+                    for (var i = 0; i < resetRoles.length; i++) {
+
+                        if (resetRoles[i].id === role.id) {
+
+                            setTimeout(function() {
+
+                                client.removeMemberFromRole(userToMute, role, function(err) {
+
+                                    if (err) {
+                                        console.log(err);
+                                    } else {
+
+                                        console.log("\nRemoved role " + role.name + " from user " + userToMute.name);
+                                    }
+                                });
+                            }, 1000);
+                        }
+                    }
+                });
 
                 // find the name of a role called Muted in the guild that the message
                 // was sent from
