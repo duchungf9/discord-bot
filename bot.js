@@ -259,7 +259,7 @@ function khoamom(message,soIcon){
                     userToMute.removeRole(muteRole);
                 }, MUTE_TIME);
 
-                message.channel.send(`*${message.author.username} đã nhét 100 chiếc quần xì vào mõm ${userToMute.user.username},${userToMute.user.username}  đã bị khóa mõm trong ${MUTE_TIME / 60} seconds*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
+                message.channel.send(`*${message.author.username} đã nhét 100 chiếc quần xì vào mõm ${userToMute.user.username},${userToMute.user.username}  đã bị khóa mõm trong ${MUTE_TIME / 60} giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
                 return;
 
             }
