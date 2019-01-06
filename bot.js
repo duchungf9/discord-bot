@@ -209,7 +209,7 @@ function cleanBot(message){
         messagesDeleted = botMessages.array().length; // number of messages deleted
 
         // Logging the number of messages deleted on both the channel and console.
-        message.channel.send("Deletion of messages successful. Total messages deleted: " + messagesDeleted);
+        message.channel.send("Chị lao công chạy vội ra dọn sạch rác của thầy hiệu trưởng. Đã dọn được số rác là: " + messagesDeleted);
         console.log('Deletion of messages successful. Total messages deleted: ' + messagesDeleted)
     }).catch(err => {
         console.log('Error while doing Bulk Delete');
