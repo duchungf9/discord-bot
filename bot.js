@@ -21,7 +21,7 @@ const talkedRecently = new Set();
 
 client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
-    const chuiBay = ["dmm"];
+    const chuiBay = ["dmm","Dmm","dcmm","Dcmm","dit me may","Dit me may","dit con em may"];
     $userName = message.author.username;
     var soCurrency = "2ST4m28";
     var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
@@ -31,7 +31,7 @@ client.on('message', message => {
                 description: "dạ, là tuyệt vời ông mặt trời ạ!, ư ư!",
             }});
     }
-    if(chuiBay.some(word => message.content.includes(word.toLowerCase()))){
+    if(chuiBay.some(word => message.content.includes(word))){
         //https://i.imgur.com/EB6rf21.png
         var arrayImage = [
             "https://i.imgur.com/EB6rf21.png",
