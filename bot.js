@@ -198,6 +198,7 @@ function muaSip(message,soIcon,client){
             .setTimestamp();
 
         message.channel.send({embed:txtEmbed});
+        message.delete(2000);
     }
 
 }
