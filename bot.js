@@ -241,28 +241,7 @@ function khoamom(message,soIcon){
                 });
 
                 const userToMute =  message.mentions.members.first();
-                userRoles = message.channel.server.roles(userToMute);
-
-                userRoles.forEach(function(role) {
-                    for (var i = 0; i < resetRoles.length; i++) {
-
-                        if (resetRoles[i].id === role.id) {
-
-                            setTimeout(function() {
-
-                                client.removeMemberFromRole(userToMute, role, function(err) {
-
-                                    if (err) {
-                                        console.log(err);
-                                    } else {
-
-                                        console.log("\nRemoved role " + role.name + " from user " + userToMute.name);
-                                    }
-                                });
-                            }, 1000);
-                        }
-                    }
-                });
+                userToMute.block();
 
                 // find the name of a role called Muted in the guild that the message
                 // was sent from
@@ -278,6 +257,7 @@ function khoamom(message,soIcon){
                 // wait MUTE_TIME miliseconds and then remove the role
                 setTimeout(() => {
                     userToMute.removeRole(muteRole);
+                    userToMute.unblock();
                 }, MUTE_TIME);
 
                 message.channel.send(`*${message.author.username} đã nhét 100 chiếc quần xì vào mõm ${userToMute.user.username},${userToMute.user.username}  đã bị khóa mõm trong ${MUTE_TIME / 60} giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
