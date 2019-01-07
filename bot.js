@@ -265,7 +265,7 @@ function khoamom(message,soIcon){
         }else{
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Cần ít nhất 100 sịp."+soIcon+" để khóa mõm bạn khác con ơi!"
+                description: "Cần ít nhất 200 sịp."+soIcon+" để khóa mõm bạn khác con ơi!"
             }});
         }
 
