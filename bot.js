@@ -234,8 +234,8 @@ function khoamom(message,soIcon){
     var _user = usersRef.once('value',function(snapshot){
         if(snapshot.exists()){
             var siphientai = snapshot.val().sip;
-            if(siphientai>=100){
-                siphientai = siphientai-100;
+            if(siphientai>=200){
+                siphientai = siphientai-200;
                 usersRef.update({
                     sip:siphientai
                 });
@@ -257,7 +257,7 @@ function khoamom(message,soIcon){
                     userToMute.removeRole(muteRole);
                 }, MUTE_TIME);
 
-                message.channel.send(`*${message.author.username} đã nhét 100 chiếc quần xì vào mõm ${userToMute.user.username},${userToMute.user.username}  đã bị khóa mõm trong  60 giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
+                message.channel.send(`*${message.author.username} đã nhét 200 chiếc quần xì vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  60 giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
                 return;
 
             }
