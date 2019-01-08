@@ -260,12 +260,18 @@ function khoamom(message,soIcon){
                 message.channel.send(`*${message.author.username} đã nhét 200 chiếc quần xì vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  60 giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
                 return;
 
+            }else{
+                message.channel.send({embed: {
+                        color: 3447003,
+                        description: " Cần ít nhất 200 sịp."+soIcon+" để khóa mõm bạn khác con ơi!"
+                    }});
+
             }
 
         }else{
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Cần ít nhất 200 sịp."+soIcon+" để khóa mõm bạn khác con ơi!"
+                description: "K có sịp thì đừng đú con ơi !"
             }});
         }
 
