@@ -171,7 +171,7 @@ function getCurrentCurrency(usersRef) {
         }
         return siphientai;
     }).then(function(data){
-        console.log(data.snapshot.val());
+        console.log(data.val());
     });
     return _user;
 }
