@@ -169,9 +169,9 @@ function getCurrentCurrency(usersRef) {
                 sip: 0
             })
         }
-        return siphientai;
+        // return siphientai;
     }).then(function(data){
-        console.log(data.val());
+        return data.val().sip;
     });
     return _user;
 }
