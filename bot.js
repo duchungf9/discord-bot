@@ -307,6 +307,8 @@ function tangSip(message,currencyIcon,amount){
 }
 
 function updateCurrency(amount,userRef){
+    console.log('add thêm');
+    console.log(amount);
     userRef.update({
         sip:amount
     });
