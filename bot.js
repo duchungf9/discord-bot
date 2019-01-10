@@ -248,8 +248,8 @@ function khoamom(message,currencyIcon){
     var _user = usersRef.once('value',function(snapshot){
         if(snapshot.exists()){
             var siphientai = snapshot.val().sip;
-            if(siphientai>=200){
-                siphientai = siphientai-200;
+            if(siphientai>=50){
+                siphientai = siphientai-50;
                 usersRef.update({
                     sip:siphientai
                 });
@@ -264,20 +264,20 @@ function khoamom(message,currencyIcon){
 
                 // the time it takes for the mute to be removed
                 // in miliseconds
-                const MUTE_TIME = 60 * 1000;
+                const MUTE_TIME = 10 * 1000;
 
                 // wait MUTE_TIME miliseconds and then remove the role
                 setTimeout(() => {
                     userToMute.removeRole(muteRole);
                 }, MUTE_TIME);
 
-                message.channel.send(`*${message.author.username} đã nhét 200 chiếc quần xì vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  60 giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
+                message.channel.send(`*${message.author.username} đã nhét 50 chiếc quần xì vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  10 giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
                 return;
 
             }else{
                 message.channel.send({embed: {
                         color: 3447003,
-                        description: " Cần ít nhất 200 sịp."+currencyIcon+" để khóa mõm bạn khác con ơi!"
+                        description: " Cần ít nhất 50 sịp."+currencyIcon+" để khóa mõm bạn khác con ơi!"
                     }});
 
             }
