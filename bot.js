@@ -175,13 +175,14 @@ function getCurrentCurrency(usersRef) {
 }
 function checkSip(message,currencyIcon){
     var usersRef = ref.child("users/"+message.author.username);
-        siphientai = getCurrentCurrency(usersRef);
-        message.channel.send({embed: {
-            color: 3447003,
-            description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+currencyIcon
-        }});
-        currentDropCoin = 0;
-    message.delete(5000);
+        siphientai = getCurrentCurrency(usersRef).then(function(sip){
+            message.channel.send({embed: {
+                    color: 3447003,
+                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+currencyIcon
+                }});
+            currentDropCoin = 0;
+            message.delete(5000);
+        });
 }
 
 function randomSip(message,currencyIcon){
