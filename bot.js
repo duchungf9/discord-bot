@@ -299,8 +299,8 @@ function tangSip(message,currencyIcon,amount){
     var usersRef = ref.child("users/"+userNhanTien.user.username);
     var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
         console.log(data);
-        var newCurrency =  data+amount;
-        updateCurrency(newCurrency,usersRef);
+        var newCurrency =  parseInt(data, 10)+parseInt(amount, 10);
+        updateCurrency(parseInt(newCurrency, 10),usersRef);
         message.channel.send({embed: {
                 color: 3447003,
                 description: message.author.username+" đã ban cho "+userNhanTien.user.username+" "+amount+currencyIcon
