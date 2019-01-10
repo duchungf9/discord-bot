@@ -296,7 +296,7 @@ function khoamom(message,currencyIcon){
 function tangSip(message,currencyIcon,amount){
     var userNhanTien =  message.mentions.members.first();
     var usersRef = ref.child("users/"+userNhanTien);
-    var currentCurrency = getCurrentCurrency(usersRef);
+    var currentCurrency = getCurrentCurrency(usersRef).then(function(data){return data;});
     var newCurrency =  currentCurrency+amount;
     updateCurrency(newCurrency,usersRef);
     message.channel.send({embed: {
