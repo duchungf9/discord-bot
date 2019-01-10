@@ -24,7 +24,7 @@ client.on('message', message => {
     const chuiBay = ["dmm","Dmm","dcmm","Dcmm","dit me may","Dit me may","dit con em may"];
     $userName = message.author.username;
     var soCurrency = "2ST4m28";
-    var soIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
+    var currencyIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     if( swearWords.some(word => message.content.includes(word)) ) {
         message.channel.send({embed: {
                 color: 3447003,
@@ -51,9 +51,9 @@ client.on('message', message => {
         minhbeosua(message);
     }
     if (message.content.toUpperCase() === `.$`) {
-        checkSip(message,soIcon);
+        checkSip(message,currencyIcon);
     }
-    randomSip(message,soIcon);
+    randomSip(message,currencyIcon);
 
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
@@ -72,7 +72,7 @@ client.on('message', message => {
                 }
                 message.channel.send({embed: {
                         color: 3447003,
-                        description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
+                        description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+currencyIcon
                     }});
                 currentDropCoin = 0;
 
@@ -108,7 +108,7 @@ client.on('message', message => {
                 }
                 message.channel.send({embed: {
                     color: 3447003,
-                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
+                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+currencyIcon
                 }});
 
             });
@@ -121,10 +121,18 @@ client.on('message', message => {
         message.delete(2500);
     }
     if(message.content === "mưa sịp"){
-        muaSip(message,soIcon,client);
+        muaSip(message,currencyIcon,client);
     }
     if(message.content.startsWith(".km")){
-        khoamom(message,soIcon);
+        khoamom(message,currencyIcon);
+    }
+    if(message.content.startsWith(".give")){
+        var stringContent = message.content;
+        var arrayExplodedBySpace = stringContent.split(" ");
+        console.log(arrayExplodedBySpace);
+        if(arrayExplodedBySpace.length == 3){
+
+        }
     }
 });
 
@@ -151,33 +159,36 @@ function minhbeosua(message){
 
     message.channel.send({embed:exampleEmbed});
 }
-
-function checkSip(message,soIcon){
-    var usersRef = ref.child("users/"+message.author.username);
-    var _user = usersRef.once('value',function(snapshot){
-        var siphientai = 0;
-        if(snapshot.exists()){
+function getCurrentCurrency(usersRef) {
+    var siphientai = 0;
+    var _user = usersRef.once('value', function (snapshot) {
+        if (snapshot.exists()) {
             siphientai = snapshot.val().sip;
-        }else{
+        } else {
             usersRef.set({
-                sip:0
+                sip: 0
             })
         }
+    });
+    return siphientai;
+}
+function checkSip(message,currencyIcon){
+    var usersRef = ref.child("users/"+message.author.username);
+        siphientai = getCurrentCurrency(usersRef);
         message.channel.send({embed: {
             color: 3447003,
-            description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+soIcon
+            description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+currencyIcon
         }});
         currentDropCoin = 0;
-    });
     message.delete(5000);
 }
 
-function randomSip(message,soIcon){
+function randomSip(message,currencyIcon){
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
     var quoteRandom = [
-        "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+soIcon+" sịp này!!!",
-        "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+soIcon+" chiếc quần xì bay xuống."
+        "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+currencyIcon+" sịp này!!!",
+        "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+currencyIcon+" chiếc quần xì bay xuống."
     ];
 
     console.log(random);
@@ -190,7 +201,7 @@ function randomSip(message,soIcon){
 }
 }
 
-function muaSip(message,soIcon,client){
+function muaSip(message,currencyIcon,client){
     if(message.author.username == 'loandet' || message.author.username =='duchungf9'){
         currentDropCoin = 100;
         //https://i.imgur.com/EB6rf21.png
@@ -200,7 +211,7 @@ function muaSip(message,soIcon,client){
             .setColor('#0099ff')
             .setTitle('ư ư ư, mưa sịp tới rồi!!')
             .setAuthor('Thầy hiệu trưởng', 'http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg', 'https://xvideos.com')
-            .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc quần xì '+soIcon+' từ tầng thượng!!, nhặt mau các trò')
+            .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc quần xì '+currencyIcon+' từ tầng thượng!!, nhặt mau các trò')
             .setImage("http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg")
             .setTimestamp();
 
@@ -228,7 +239,7 @@ function leaderBoardSip(){
 
 }
 
-function khoamom(message,soIcon){
+function khoamom(message,currencyIcon){
 
     var usersRef = ref.child("users/"+message.author.username);
     var _user = usersRef.once('value',function(snapshot){
@@ -263,7 +274,7 @@ function khoamom(message,soIcon){
             }else{
                 message.channel.send({embed: {
                         color: 3447003,
-                        description: " Cần ít nhất 200 sịp."+soIcon+" để khóa mõm bạn khác con ơi!"
+                        description: " Cần ít nhất 200 sịp."+currencyIcon+" để khóa mõm bạn khác con ơi!"
                     }});
 
             }
@@ -278,8 +289,25 @@ function khoamom(message,soIcon){
         currentDropCoin = 0;
 
     });
-    // message.delete(5000);
-    // cleanBot(message);
+}
+
+function tangSip(message,currencyIcon,amount){
+    var userNhanTien =  message.mentions.members.first();
+    var usersRef = ref.child("users/"+userNhanTien);
+    var currentCurrency = getCurrentCurrency(usersRef);
+    var newCurrency =  currentCurrency+amount;
+    updateCurrency(newCurrency,usersRef);
+    message.channel.send({embed: {
+            color: 3447003,
+            description: message.author.username+" đã ban cho "+userNhanTien.username+" "+amount+currencyIcon
+        }});
+
+}
+
+function updateCurrency(amount,userRef){
+    userRef.update({
+        sip:amount
+    });
 
 }
 
