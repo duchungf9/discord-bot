@@ -170,6 +170,8 @@ function getCurrentCurrency(usersRef) {
             })
         }
         return siphientai;
+    }).then(function(data){
+        console.log(data);
     });
     return _user;
 }
