@@ -178,7 +178,7 @@ function checkSip(message,currencyIcon){
         siphientai = getCurrentCurrency(usersRef).then(function(sip){
             message.channel.send({embed: {
                     color: 3447003,
-                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" sịp."+currencyIcon
+                    description: "Hiện "+message.author.username+" đang có: "+sip+" sịp."+currencyIcon
                 }});
             currentDropCoin = 0;
             message.delete(5000);
