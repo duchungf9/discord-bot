@@ -130,8 +130,8 @@ client.on('message', message => {
         var stringContent = message.content;
         var arrayExplodedBySpace = stringContent.split(" ");
         console.log(arrayExplodedBySpace);
-        if(arrayExplodedBySpace.length == 3){
-
+        if(arrayExplodedBySpace.length == 3 && (message.author.username == 'loandet' || message.author.username =='duchungf9')){
+            tangSip(message,currencyIcon,arrayExplodedBySpace[1]);
         }
     }
 });
