@@ -297,6 +297,7 @@ function tangSip(message,currencyIcon,amount){
     var userNhanTien =  message.mentions.members.first();
     var usersRef = ref.child("users/"+userNhanTien);
     var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
+        console.log(data);
         var newCurrency =  data+amount;
         updateCurrency(newCurrency,usersRef);
         message.channel.send({embed: {
@@ -309,8 +310,6 @@ function tangSip(message,currencyIcon,amount){
 }
 
 function updateCurrency(amount,userRef){
-    console.log('add thêm');
-    console.log(amount);
     userRef.update({
         sip:amount
     });
