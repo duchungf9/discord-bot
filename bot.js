@@ -301,7 +301,7 @@ function tangSip(message,currencyIcon,amount){
     updateCurrency(newCurrency,usersRef);
     message.channel.send({embed: {
             color: 3447003,
-            description: message.author.username+" đã ban cho "+userNhanTien.username+" "+amount+currencyIcon
+            description: message.author.username+" đã ban cho "+userNhanTien.user.username+" "+amount+currencyIcon
         }});
 
 }
