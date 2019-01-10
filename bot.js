@@ -160,7 +160,7 @@ function minhbeosua(message){
     message.channel.send({embed:exampleEmbed});
 }
 function getCurrentCurrency(usersRef) {
-    var _user = usersRef.once('value', function (snapshot) {
+    return _user = usersRef.once('value', function (snapshot) {
         var siphientai = 0;
         if (snapshot.exists()) {
             siphientai = snapshot.val().sip;
@@ -169,11 +169,9 @@ function getCurrentCurrency(usersRef) {
                 sip: 0
             })
         }
-        // return siphientai;
     }).then(function(data){
         return data.val().sip;
     });
-    return _user;
 }
 function checkSip(message,currencyIcon){
     var usersRef = ref.child("users/"+message.author.username);
