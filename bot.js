@@ -35,7 +35,8 @@ client.on('message', message => {
         //https://i.imgur.com/EB6rf21.png
         var arrayImage = [
             "https://i.imgur.com/EB6rf21.png",
-            "https://i.imgur.com/2jUrUAb.png"
+            "https://i.imgur.com/2jUrUAb.png",
+            "https://cdn.discordapp.com/attachments/530448778982064128/534299862280175616/unknown.png"
         ];
         var index = Math.floor(Math.random() * 2);
 
@@ -133,6 +134,9 @@ client.on('message', message => {
         if(arrayExplodedBySpace.length == 3 && (message.author.username == 'loandet' || message.author.username =='duchungf9')){
             tangSip(message,currencyIcon,arrayExplodedBySpace[1]);
         }
+    }
+    if(message.content ===".lb"){
+
     }
 });
 
