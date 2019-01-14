@@ -38,7 +38,7 @@ client.on('message', message => {
             "https://i.imgur.com/2jUrUAb.png",
             "https://cdn.discordapp.com/attachments/530448778982064128/534299862280175616/unknown.png"
         ];
-        var index = Math.floor(Math.random() * 2);
+        var index = Math.floor(Math.random() * arrayImage.length);
 
         var txtEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
