@@ -274,8 +274,10 @@ function khoamom(message,currencyIcon){
                 setTimeout(() => {
                     userToMute.removeRole(muteRole);
                 }, MUTE_TIME);
+                arrayImage = ["https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg","https://cdn.discordapp.com/attachments/530448778982064128/534679789987037184/Screenshot_7.png"];
+                var index = Math.floor(Math.random() * arrayImage.length);
 
-                message.channel.send(`*${message.author.username} đã nhét 50 chiếc quần xì vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  10 giây*`, { file: 'https://i.ytimg.com/vi/B6VR6JiYMxE/maxresdefault.jpg' });
+                message.channel.send(`*${message.author.username} đã nhét 50 chiếc quần xì vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  10 giây*`, { file: arrayImage[index] });
                 return;
 
             }else{
