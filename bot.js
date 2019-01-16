@@ -42,7 +42,6 @@ client.on('message', message => {
 
         var txtEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
-            .setAuthor('feeder.tap.choi', 'http://www.elleman.vn/wp-content/uploads/2016/10/25/bi-quyet-luyen-tap-de-co-bap-tay-to-elleman-2.jpg', 'https://xvideos.com')
             .setImage(arrayImage[index])
             .setTimestamp();
 
@@ -314,8 +313,6 @@ function tangSip(message,currencyIcon,amount){
                 description: message.author.username+" đã ban cho "+userNhanTien.user.username+" "+amount+currencyIcon
         }});
     });
-
-
 }
 
 function updateCurrency(amount,userRef){
