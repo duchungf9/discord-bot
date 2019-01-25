@@ -322,7 +322,7 @@ function updateCurrency(amount,userRef){
 
 }
 function idleShelter(message){
-    message.channel.send(`*${message.author.username}`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
+    message.channel.send(`*${message.author.username} https://playidleheroes.com/events/#Shelter`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
 
 }
 // THIS  MUST  BE  THIS  WAY
