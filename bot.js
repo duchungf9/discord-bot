@@ -138,7 +138,7 @@ client.on('message', message => {
         idleShelter(message);
     }
     if(message.content ==="?"){
-        message.channel.send(`??? thái độ clmm, ${message.author.username}!`);
+        message.channel.send(`??? thái độ clmm, ${message.author}!`);
     }
 });
 
