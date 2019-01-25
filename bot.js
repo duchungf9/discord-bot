@@ -134,8 +134,8 @@ client.on('message', message => {
             tangSip(message,currencyIcon,arrayExplodedBySpace[1]);
         }
     }
-    if(message.content ===".lb"){
-
+    if(message.content ===".shelter"){
+        idleShelter(message);
     }
 });
 
@@ -321,7 +321,10 @@ function updateCurrency(amount,userRef){
     });
 
 }
+function idleShelter(message){
+    message.channel.send(`*${message.author.username}`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
 
+}
 // THIS  MUST  BE  THIS  WAY
 
 client.login(process.env.BOT_TOKEN);
