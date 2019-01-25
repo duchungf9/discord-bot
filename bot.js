@@ -137,6 +137,9 @@ client.on('message', message => {
     if(message.content ===".shelter"){
         idleShelter(message);
     }
+    if(message.content ==="?"){
+        channel.send(`??? thái độ clmm, ${message.author}!`);
+    }
 });
 
 // Create an event listener for new guild members
