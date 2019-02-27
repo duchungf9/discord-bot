@@ -53,6 +53,9 @@ client.on('message', message => {
     if (message.content.toUpperCase() === `.$`) {
         checkSip(message,currencyIcon);
     }
+    if(message.content.startsWith(".dt")){
+        doiten(message,currencyIcon);
+    }
     randomSip(message,currencyIcon);
 
     if(message.content === ".pick"){
@@ -297,6 +300,45 @@ function khoamom(message,currencyIcon){
                 color: 3447003,
                 description: "K có kim cương thì đừng đú con ơi !"
             }});
+        }
+
+        currentDropCoin = 0;
+
+    });
+}
+
+function doiten(message,currencyIcon){
+    var usersRef = ref.child("users/"+message.author.username);
+    var _user = usersRef.once('value',function(snapshot){
+        if(snapshot.exists()){
+            var siphientai = snapshot.val().sip;
+            if(siphientai>=500){
+                siphientai = siphientai-500;
+                usersRef.update({
+                    sip:siphientai
+                });
+
+                const userToChange =  message.mentions.members.first();
+                var stringContent = message.content;
+                var arrayExplodedBySpace = stringContent.split(" ");
+                var newName = arrayExplodedBySpace[1];
+                userToChange.setUsername(newName);
+                message.channel.send(`*${message.author.username} dùng 500 kim cương để đổi tên ${userToMute.user.username} thành ${newName}`);
+                return;
+
+            }else{
+                message.channel.send({embed: {
+                        color: 3447003,
+                        description: " Cần ít nhất 500 kim cương."+currencyIcon+" để đổi tên bạn khác con ơi!"
+                    }});
+
+            }
+
+        }else{
+            message.channel.send({embed: {
+                    color: 3447003,
+                    description: "K có kim cương thì đừng đú con ơi !"
+                }});
         }
 
         currentDropCoin = 0;
