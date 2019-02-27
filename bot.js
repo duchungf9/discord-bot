@@ -23,7 +23,7 @@ client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
     const chuiBay = ["dmm","Dmm","dcmm","Dcmm","dit me may","Dit me may","dit con em may"];
     $userName = message.author.username;
-    var soCurrency = "2ST4m28";
+    var soCurrency = "gem";
     var currencyIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     if( swearWords.some(word => message.content.includes(word)) ) {
         message.channel.send({embed: {
@@ -196,8 +196,8 @@ function randomSip(message,currencyIcon){
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
     var quoteRandom = [
-        "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+currencyIcon+" sịp này!!!",
-        "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+currencyIcon+" chiếc quần xì bay xuống."
+        "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+currencyIcon+" kim cương này!!!",
+        "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+currencyIcon+" chiếc kim cương bay xuống."
     ];
 
     console.log(random);
@@ -218,9 +218,9 @@ function muaSip(message,currencyIcon,client){
 
         var txtEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
-            .setTitle('ư ư ư, mưa sịp tới rồi!!')
+            .setTitle('ư ư ư, mưa kim cương tới rồi!!')
             .setAuthor('Thầy hiệu trưởng', 'http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg', 'https://xvideos.com')
-            .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc quần xì '+currencyIcon+' từ tầng thượng!!, nhặt mau các trò')
+            .setDescription('sau tiếng hô, Thầy hiệu trưởng bèn thả 100 chiếc kim cương '+currencyIcon+' từ tầng thượng!!, nhặt mau các trò')
             .setImage("http://mickael.bessierre.free.fr/Images/mangas/personnages/gto/sous_dirlo.jpg")
             .setTimestamp();
 
@@ -281,13 +281,13 @@ function khoamom(message,currencyIcon){
                 "https://cdn.discordapp.com/attachments/530448778982064128/534680786981617664/Screenshot_8.png"];
                 var index = Math.floor(Math.random() * arrayImage.length);
 
-                message.channel.send(`*${message.author.username} đã nhét 50 chiếc quần xì vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  10 giây*`, { file: arrayImage[index] });
+                message.channel.send(`*${message.author.username} đã nhét 50 kim cương vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  10 giây*`, { file: arrayImage[index] });
                 return;
 
             }else{
                 message.channel.send({embed: {
                         color: 3447003,
-                        description: " Cần ít nhất 50 sịp."+currencyIcon+" để khóa mõm bạn khác con ơi!"
+                        description: " Cần ít nhất 50 kim cương."+currencyIcon+" để khóa mõm bạn khác con ơi!"
                     }});
 
             }
@@ -295,7 +295,7 @@ function khoamom(message,currencyIcon){
         }else{
             message.channel.send({embed: {
                 color: 3447003,
-                description: "K có sịp thì đừng đú con ơi !"
+                description: "K có kim cương thì đừng đú con ơi !"
             }});
         }
 
