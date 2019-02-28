@@ -170,8 +170,8 @@ function minhbeosua(message){
 }
 function getCurrentCurrency(usersRef) {
     return _user = usersRef.once('value', function (snapshot) {
-        if(typeof snapshot.val() != 'undefined'){
-            console.log(snapshot.val().sip);
+        if(typeof snapshot.val().sip != 'undefined'){
+            // console.log(snapshot.val().sip);
             var siphientai = 0;
             if (snapshot.exists()) {
                 siphientai = snapshot.val().sip;
