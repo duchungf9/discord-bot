@@ -170,8 +170,6 @@ function minhbeosua(message){
 }
 function getCurrentCurrency(usersRef) {
     return _user = usersRef.once('value', function (snapshot) {
-        // if(typeof snapshot.val().sip != 'undefined'){
-            // console.log(snapshot.val().sip);
             var siphientai = 0;
             if (snapshot.exists()) {
                 siphientai = snapshot.val().sip;
@@ -180,7 +178,6 @@ function getCurrentCurrency(usersRef) {
                     sip: 0
                 })
             }
-        // }
 
     }).then(function(data){
         return data.val().sip;
@@ -191,7 +188,7 @@ function checkSip(message,currencyIcon){
         siphientai = getCurrentCurrency(usersRef).then(function(sip){
             message.channel.send({embed: {
                     color: 3447003,
-                    description: "Hiện "+message.author.displayName+" đang có: "+sip+" kim cương."+currencyIcon
+                    description: "Hiện "+${message.author}+" đang có: "+sip+" kim cương."+currencyIcon
                 }});
             currentDropCoin = 0;
             message.delete(5000);
