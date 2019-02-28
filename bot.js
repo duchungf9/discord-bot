@@ -25,6 +25,7 @@ const talkedRecently = new Set();
 client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
     const chuiBay = ["dmm","Dmm","dcmm","Dcmm","dit me may","Dit me may","dit con em may"];
+    const spamContent = ["https://cdn.discordapp.com/attachments/531764733074735104/550627791146713088/received_360307941085850.gif"];
     $userName = message.author.username;
     var soCurrency = "kimcuong";
     var currencyIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
@@ -49,6 +50,9 @@ client.on('message', message => {
             .setTimestamp();
 
         message.channel.send({embed:txtEmbed});
+    }
+    if(spamContent.some(word => message.content.includes(word))){
+        message.delete(5000);
     }
     if (message.content === 'sủa đi minh') {
         minhbeosua(message);
@@ -260,17 +264,10 @@ function leaderBoardSip(){
 }
 
 function getXS(message){
-    //Gửi 1 request tới website
-    console.log('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html');
-
     request('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html', function (err, res, body)
     {
-        //  Sử dụng cheerio.load để lấy dữ liệu trả về
         var $ = cheerio.load(body);
-        //  Lấy chương mới nhất của truyện
         var giaidacbiet = $($(".special-prize-lg")[0]).text();
-        console.log(giaidacbiet);
-        console.log(giaidacbiet);
         message.channel.send({embed: {
                 color: 3447003,
                 description: "Giải đặc biệt :"+giaidacbiet
