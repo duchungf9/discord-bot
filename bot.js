@@ -261,12 +261,14 @@ function leaderBoardSip(){
 
 function getXS(message){
     //Gửi 1 request tới website
+    console.log('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html');
     request('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html', function (err, res, body)
     {
         //  Sử dụng cheerio.load để lấy dữ liệu trả về
         var $ = cheerio.load(body);
         //  Lấy chương mới nhất của truyện
         var giaidacbiet = $('.special-prize-lg').text();
+        console.log(giaidacbiet);
         message.channel.send({embed: {
                 color: 3447003,
                 description: "Giải đặc biệt :"+giaidacbiet
