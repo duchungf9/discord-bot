@@ -52,7 +52,7 @@ client.on('message', message => {
         message.channel.send({embed:txtEmbed});
     }
     if(spamContent.some(word => message.content.includes(word))){
-        message.delete(5000);
+        message.delete(0);
     }
     if (message.content === 'sủa đi minh') {
         minhbeosua(message);
