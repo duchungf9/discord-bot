@@ -111,7 +111,7 @@ client.on('message', message => {
                 }
                 message.channel.send({embed: {
                     color: 3447003,
-                    description: "Hiện "+message.author.displayName+" đang có: "+siphientai+" kim cương."+currencyIcon
+                    description: "Hiện "+message.author+" đang có: "+siphientai+" kim cương."+currencyIcon
                 }});
 
             });
@@ -199,7 +199,7 @@ function randomSip(message,currencyIcon){
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
     var quoteRandom = [
-        "Ôi vãi cả lìn thằng "+message.author.displayName+" nó làm rơi "+So+currencyIcon+" kim cương này!!!",
+        "Ôi vãi cả lìn thằng "+message.author+" nó làm rơi "+So+currencyIcon+" kim cương này!!!",
         "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+currencyIcon+" chiếc kim cương bay xuống."
     ];
 
@@ -284,7 +284,7 @@ function khoamom(message,currencyIcon){
                 "https://cdn.discordapp.com/attachments/530448778982064128/534680786981617664/Screenshot_8.png"];
                 var index = Math.floor(Math.random() * arrayImage.length);
 
-                message.channel.send(`*${message.author.displayName} đã nhét 50 kim cương vào mõm ${userToMute.user.displayName},và ${userToMute.user.displayName}  đã bị khóa mõm trong  10 giây*`, { file: arrayImage[index] });
+                message.channel.send(`*${message.author} đã nhét 50 kim cương vào mõm ${userToMute.user},và ${userToMute.user}  đã bị khóa mõm trong  10 giây*`, { file: arrayImage[index] });
                 return;
 
             }else{
@@ -324,7 +324,7 @@ function doiten(message,currencyIcon){
                 var newName = arrayExplodedBySpace[1];
                 newName = newName.replace("-"," ");
                 userToChange.setNickname(newName);
-                message.channel.send(`*${message.author.displayName} dùng 500 kim cương để đổi tên ${userToChange.user.displayName} thành ${newName}`);
+                message.channel.send(`*${message.author} dùng 500 kim cương để đổi tên ${userToChange.user} thành ${newName}`);
                 return;
 
             }else{
@@ -356,7 +356,7 @@ function tangSip(message,currencyIcon,amount){
         updateCurrency(parseInt(newCurrency, 10),usersRef);
         message.channel.send({embed: {
                 color: 3447003,
-                description: message.author.displayName+" đã ban cho "+userNhanTien.user.displayName+" "+amount+currencyIcon
+                description: message.author+" đã ban cho "+userNhanTien.user+" "+amount+currencyIcon
         }});
     });
 }
@@ -368,7 +368,7 @@ function updateCurrency(amount,userRef){
 
 }
 function idleShelter(message){
-    message.channel.send(`*${message.author.displayName} https://playidleheroes.com/events/#Shelter`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
+    message.channel.send(`*${message.author} https://playidleheroes.com/events/#Shelter`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
 
 }
 // THIS  MUST  BE  THIS  WAY
