@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const money = require('discord-money');
 const client = new Discord.Client();
+const cheerio = require('cheerio');
+const request = require('request');
+const fs = require('fs');
 var currentDropCoin = 0;
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
@@ -250,6 +253,22 @@ function cleanBot(message){
 function leaderBoardSip(){
 
 }
+
+function getXS(message){
+    //Gửi 1 request tới website
+    request('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html', function (err, res, body)
+    {
+        //  Sử dụng cheerio.load để lấy dữ liệu trả về
+        var $ = cheerio.load(body);
+        //  Lấy chương mới nhất của truyện
+        var giaidacbiet = $('.special-prize-lg').text();
+        message.channel.send({embed: {
+                color: 3447003,
+                description: "Giải đặc biệt :"+giaidacbiet
+            }});
+    });
+}
+
 
 function khoamom(message,currencyIcon){
 
