@@ -262,6 +262,7 @@ function leaderBoardSip(){
 function getXS(message){
     //Gửi 1 request tới website
     console.log('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html');
+
     request('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html', function (err, res, body)
     {
         //  Sử dụng cheerio.load để lấy dữ liệu trả về
