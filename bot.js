@@ -96,7 +96,7 @@ client.on('message', message => {
             return;
         }else{
             console.log(message.author.id+'timely');
-            var usersRef = ref.child("users/"+message.author.username);
+            var usersRef = ref.child("users/"+message.author.id);
             var _user = usersRef.once('value',function(snapshot){
                 if(snapshot.exists()){
                     var siphientai = snapshot.val().sip;
@@ -187,7 +187,7 @@ function getCurrentCurrency(usersRef) {
     });
 }
 function checkSip(message,currencyIcon){
-    var usersRef = ref.child("users/"+message.author.username);
+    var usersRef = ref.child("users/"+message.author.id);
         siphientai = getCurrentCurrency(usersRef).then(function(sip){
             message.channel.send({embed: {
                     color: 3447003,
@@ -256,7 +256,7 @@ function leaderBoardSip(){
 
 function khoamom(message,currencyIcon){
 
-    var usersRef = ref.child("users/"+message.author.username);
+    var usersRef = ref.child("users/"+message.author.id);
     var _user = usersRef.once('value',function(snapshot){
         if(snapshot.exists()){
             var siphientai = snapshot.val().sip;
@@ -311,7 +311,7 @@ function khoamom(message,currencyIcon){
 }
 
 function doiten(message,currencyIcon){
-    var usersRef = ref.child("users/"+message.author.username);
+    var usersRef = ref.child("users/"+message.author.id);
     var _user = usersRef.once('value',function(snapshot){
         if(snapshot.exists()){
             var siphientai = snapshot.val().sip;
