@@ -268,7 +268,7 @@ function getXS(message){
         //  Sử dụng cheerio.load để lấy dữ liệu trả về
         var $ = cheerio.load(body);
         //  Lấy chương mới nhất của truyện
-        var giaidacbiet = $('.special-prize-lg').text();
+        var giaidacbiet = $($(".special-prize-lg")[0]).text();
         console.log(giaidacbiet);
         console.log(giaidacbiet);
         message.channel.send({embed: {
