@@ -111,7 +111,7 @@ client.on('message', message => {
                 }
                 message.channel.send({embed: {
                     color: 3447003,
-                    description: "Hiện "+message.author.username+" đang có: "+siphientai+" kim cương."+currencyIcon
+                    description: "Hiện "+message.author.displayName+" đang có: "+siphientai+" kim cương."+currencyIcon
                 }});
 
             });
@@ -191,7 +191,7 @@ function checkSip(message,currencyIcon){
         siphientai = getCurrentCurrency(usersRef).then(function(sip){
             message.channel.send({embed: {
                     color: 3447003,
-                    description: "Hiện "+message.author.username+" đang có: "+sip+" kim cương."+currencyIcon
+                    description: "Hiện "+message.author.displayName+" đang có: "+sip+" kim cương."+currencyIcon
                 }});
             currentDropCoin = 0;
             message.delete(5000);
@@ -202,7 +202,7 @@ function randomSip(message,currencyIcon){
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
     var quoteRandom = [
-        "Ôi vãi cả lìn thằng "+message.author.username+" nó làm rơi "+So+currencyIcon+" kim cương này!!!",
+        "Ôi vãi cả lìn thằng "+message.author.displayName+" nó làm rơi "+So+currencyIcon+" kim cương này!!!",
         "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+currencyIcon+" chiếc kim cương bay xuống."
     ];
 
@@ -287,7 +287,7 @@ function khoamom(message,currencyIcon){
                 "https://cdn.discordapp.com/attachments/530448778982064128/534680786981617664/Screenshot_8.png"];
                 var index = Math.floor(Math.random() * arrayImage.length);
 
-                message.channel.send(`*${message.author.username} đã nhét 50 kim cương vào mõm ${userToMute.user.username},và ${userToMute.user.username}  đã bị khóa mõm trong  10 giây*`, { file: arrayImage[index] });
+                message.channel.send(`*${message.author.displayName} đã nhét 50 kim cương vào mõm ${userToMute.user.displayName},và ${userToMute.user.displayName}  đã bị khóa mõm trong  10 giây*`, { file: arrayImage[index] });
                 return;
 
             }else{
@@ -327,7 +327,7 @@ function doiten(message,currencyIcon){
                 var newName = arrayExplodedBySpace[1];
                 newName = newName.replace("-"," ");
                 userToChange.setNickname(newName);
-                message.channel.send(`*${message.author.username} dùng 500 kim cương để đổi tên ${userToChange.user.username} thành ${newName}`);
+                message.channel.send(`*${message.author.displayName} dùng 500 kim cương để đổi tên ${userToChange.user.displayName} thành ${newName}`);
                 return;
 
             }else{
@@ -352,14 +352,14 @@ function doiten(message,currencyIcon){
 
 function tangSip(message,currencyIcon,amount){
     var userNhanTien =  message.mentions.members.first();
-    var usersRef = ref.child("users/"+userNhanTien.user.username);
+    var usersRef = ref.child("users/"+userNhanTien.user.id);
     var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
         console.log(data);
         var newCurrency =  parseInt(data, 10)+parseInt(amount, 10);
         updateCurrency(parseInt(newCurrency, 10),usersRef);
         message.channel.send({embed: {
                 color: 3447003,
-                description: message.author.username+" đã ban cho "+userNhanTien.user.username+" "+amount+currencyIcon
+                description: message.author.displayName+" đã ban cho "+userNhanTien.user.displayName+" "+amount+currencyIcon
         }});
     });
 }
@@ -371,7 +371,7 @@ function updateCurrency(amount,userRef){
 
 }
 function idleShelter(message){
-    message.channel.send(`*${message.author.username} https://playidleheroes.com/events/#Shelter`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
+    message.channel.send(`*${message.author.displayName} https://playidleheroes.com/events/#Shelter`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
 
 }
 // THIS  MUST  BE  THIS  WAY
