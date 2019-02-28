@@ -56,6 +56,11 @@ client.on('message', message => {
     if (message.content.toUpperCase() === `.$`) {
         checkSip(message,currencyIcon);
     }
+
+    if(message.content === '.kqxs'){
+        getXS(message);
+    }
+
     if(message.content.startsWith(".dt")){
         doiten(message,currencyIcon);
     }
