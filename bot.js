@@ -170,7 +170,7 @@ function minhbeosua(message){
 }
 function getCurrentCurrency(usersRef) {
     return _user = usersRef.once('value', function (snapshot) {
-        if(typeof snapshot.val().sip != 'undefined'){
+        // if(typeof snapshot.val().sip != 'undefined'){
             // console.log(snapshot.val().sip);
             var siphientai = 0;
             if (snapshot.exists()) {
@@ -180,7 +180,7 @@ function getCurrentCurrency(usersRef) {
                     sip: 0
                 })
             }
-        }
+        // }
 
     }).then(function(data){
         return data.val().sip;
