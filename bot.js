@@ -270,6 +270,7 @@ function getXS(message){
         //  Lấy chương mới nhất của truyện
         var giaidacbiet = $('.special-prize-lg').text();
         console.log(giaidacbiet);
+        console.log(giaidacbiet);
         message.channel.send({embed: {
                 color: 3447003,
                 description: "Giải đặc biệt :"+giaidacbiet
