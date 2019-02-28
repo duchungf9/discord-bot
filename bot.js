@@ -322,7 +322,7 @@ function doiten(message,currencyIcon){
                 var stringContent = message.content;
                 var arrayExplodedBySpace = stringContent.split(" ");
                 var newName = arrayExplodedBySpace[1];
-                newName = newName.replace("-","");
+                newName = newName.replace("-"," ");
                 userToChange.setNickname(newName);
                 message.channel.send(`*${message.author.username} dùng 500 kim cương để đổi tên ${userToChange.user.username} thành ${newName}`);
                 return;
