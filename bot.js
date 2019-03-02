@@ -219,7 +219,7 @@ function randomSip(message,currencyIcon){
         currentDropCoin = So;
         var usersRef = ref.child("users/"+message.author.id);
         var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-            var newCurrency =  parseInt(data, 10)+parseInt(amount, 10);
+            var newCurrency =  parseInt(data, 10)+parseInt(So, 10);
             updateCurrency(parseInt(newCurrency, 10),usersRef);
         });
         message.channel.send({embed: {
