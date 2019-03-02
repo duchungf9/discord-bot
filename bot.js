@@ -211,13 +211,17 @@ function randomSip(message,currencyIcon){
     var random  = Math.floor(Math.random() * 100);
     var So = Math.floor(Math.random() * 20);
     var quoteRandom = [
-        "Ôi vãi cả lìn thằng "+message.author+" nó làm rơi "+So+currencyIcon+" kim cương này!!!",
-        "Một tiếng rên nhẹ phát ra từ cửa sổ phòng cô hiệu phó, và "+So+currencyIcon+" chiếc kim cương bay xuống."
+        message.author+" đã nhặt được "+So+currencyIcon+" kim cương!!!",
     ];
 
-    console.log(random);
+    // console.log(random);
     if(random==7){
         currentDropCoin = So;
+        var usersRef = ref.child("users/"+message.author.id);
+        var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
+            var newCurrency =  parseInt(data, 10)+parseInt(amount, 10);
+            updateCurrency(parseInt(newCurrency, 10),usersRef);
+        });
         message.channel.send({embed: {
             color: 3447003,
             description: quoteRandom[Math.floor(Math.random() * quoteRandom.length)],
@@ -394,6 +398,8 @@ function updateCurrency(amount,userRef){
 }
 function idleShelter(message){
     message.channel.send(`*${message.author} https://playidleheroes.com/events/#Shelter`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
+}
+function bet(message){
 
 }
 // THIS  MUST  BE  THIS  WAY
