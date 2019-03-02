@@ -26,7 +26,7 @@ client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
     const chuiBay = ["dmm","Dmm","dcmm","Dcmm","dit me may","Dit me may","dit con em may"];
     const spamContent = ["https://cdn.discordapp.com/attachments/531764733074735104/550627791146713088/received_360307941085850.gif"];
-    $userName = message.author.username;
+    $userName = message.author;
     var soCurrency = "kimcuong";
     var currencyIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
     if( swearWords.some(word => message.content.includes(word)) ) {
@@ -72,7 +72,7 @@ client.on('message', message => {
 
     if(message.content === ".pick"){
         if(currentDropCoin!=0){
-            var usersRef = ref.child("users/"+$userName);
+            var usersRef = ref.child("users/"+$userName.id);
             var _user = usersRef.once('value',function(snapshot){
                 if(snapshot.exists()){
                     var siphientai = snapshot.val().sip;
@@ -87,7 +87,7 @@ client.on('message', message => {
                 }
                 message.channel.send({embed: {
                         color: 3447003,
-                        description: "Hiện "+message.author.username+" đang có: "+siphientai+" kim cương."+currencyIcon
+                        description: "Hiện "+message.author+" đang có: "+siphientai+" kim cương."+currencyIcon
                     }});
                 currentDropCoin = 0;
 
