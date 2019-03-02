@@ -208,8 +208,8 @@ function checkSip(message,currencyIcon){
 }
 
 function randomSip(message,currencyIcon){
-    var random  = Math.floor(Math.random() * 100);
-    var So = Math.floor(Math.random() * 20);
+    var random  = Math.floor(Math.random() * 50);
+    var So = Math.floor((Math.random() * 10)+1);
     var quoteRandom = [
         message.author+" đã nhặt được "+So+currencyIcon+" kim cương!!!",
     ];
