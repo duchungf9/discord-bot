@@ -156,25 +156,14 @@ client.on('message', message => {
     if(message.content.startsWith(".cheanh")){
         var stringContent = message.content;
 
-        var firstvariable = "\>\>";
-        var secondvariable = "\<\<";
-        var third = "\+\+";
-        var fouth = "\-\-";
+        var firstvariable = "aa ";
+        var secondvariable = " bb";
         var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig"); //set ig flag for global search and case insensitive
-        var regExString1 = new RegExp("(?:"+third+")(.*?)(?:"+fouth+")", "ig"); //set ig flag for global search and case insensitive
 
         var testRE = regExString.exec(stringContent);
-        var testRE1= regExString1.exec(stringContent);
-        if (testR1 && testRE1.length > 1){
-            var img = new Image();
-            img.src = testRE1[1];
-            console.log(img);
-        }
-
-
         if (testRE && testRE.length > 1) //RegEx has found something and has more than one entry.
         {
-            // console.log(testRE[1]); //is the matched group if found
+            console.log(testRE[1]); //is the matched group if found
             var img = new Image();
             img.src = 'fun.jpg';
             var canvas = Canvas.createCanvas(img.width, img.height);
