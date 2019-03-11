@@ -149,6 +149,19 @@ client.on('message', message => {
             tangSip(message,currencyIcon,arrayExplodedBySpace[1]);
         }
     }
+    if(message.content.startsWith(".cheanh")){
+        var stringContent = message.content;
+
+        var firstvariable = "??";
+        var secondvariable = "!!";
+        var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig"); //set ig flag for global search and case insensitive
+
+        var testRE = regExString.exec(stringContent);
+        if (testRE && testRE.length > 1) //RegEx has found something and has more than one entry.
+        {
+            console.log(testRE[1]); //is the matched group if found
+        }
+    }
     if(message.content ===".shelter"){
         idleShelter(message);
     }
