@@ -3,7 +3,10 @@ const money = require('discord-money');
 const client = new Discord.Client();
 const cheerio = require('cheerio');
 const request = require('request');
-const fs = require('fs');
+var fs = require('fs');
+var path = require('path');
+var Canvas = require('canvas');
+var Image = Canvas.Image;
 var currentDropCoin = 0;
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
@@ -160,6 +163,21 @@ client.on('message', message => {
         if (testRE && testRE.length > 1) //RegEx has found something and has more than one entry.
         {
             console.log(testRE[1]); //is the matched group if found
+            var img = new Image();
+            img.src = 'fun.jpg';
+            var canvas = Canvas.createCanvas(img.width, img.height);
+            var ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, img.width, img.height);
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.font = '30px Arial';
+            ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
+
+            canvas.createJPEGStream().pipe(fs.createWriteStream(path.join(__dirname, 'font.jpg')));
+            var base64 = base64_encode('font.jpg');
+            console.log(base64);
         }
     }
     if(message.content ===".shelter"){
@@ -415,6 +433,12 @@ function idleShelter(message){
 function bet(message){
 
 }
-// THIS  MUST  BE  THIS  WAY
 
+// function to encode file data to base64 encoded string
+function base64_encode(file) {
+    // read binary data
+    var bitmap = fs.readFileSync(file);
+    // convert binary data to base64 encoded string
+    return new Buffer(bitmap).toString('base64');
+}
 client.login(process.env.BOT_TOKEN);
