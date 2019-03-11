@@ -156,10 +156,10 @@ client.on('message', message => {
     if(message.content.startsWith(".cheanh")){
         var stringContent = message.content;
 
-        var firstvariable = ">>";
-        var secondvariable = "<<";
-        var third = "++";
-        var fouth = "--";
+        var firstvariable = "\>\>";
+        var secondvariable = "\<\<";
+        var third = "\+\+";
+        var fouth = "\-\-";
         var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig"); //set ig flag for global search and case insensitive
         var regExString1 = new RegExp("(?:"+third+")(.*?)(?:"+fouth+")", "ig"); //set ig flag for global search and case insensitive
 
