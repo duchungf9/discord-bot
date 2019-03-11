@@ -164,11 +164,14 @@ client.on('message', message => {
         var regExString1 = new RegExp("(?:"+third+")(.*?)(?:"+fouth+")", "ig"); //set ig flag for global search and case insensitive
 
         var testRE = regExString.exec(stringContent);
-        var testRE1= regExString1.exec(stringContent){
+        var testRE1= regExString1.exec(stringContent);
+        if (testR1 && testRE1.length > 1){
             var img = new Image();
             img.src = testRE1[1];
             console.log(img);
         }
+
+
         if (testRE && testRE.length > 1) //RegEx has found something and has more than one entry.
         {
             // console.log(testRE[1]); //is the matched group if found
