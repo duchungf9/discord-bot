@@ -175,7 +175,7 @@ client.on('message', message => {
             ctx.font = '30px Arial';
             ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
 
-            canvas.createJPEGStream().pipe(fs.createWriteStream(path.join(__dirname, 'font.jpg')));
+            canvas.createJPEGStream().pipe(fs.createWriteStream(path.join(__dirname, 'fonct.jpg')));
             var base64 = base64_encode('font.jpg');
             console.log(base64);
         }
