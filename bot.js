@@ -176,6 +176,8 @@ client.on('message', message => {
             ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
             var dataURL = canvas.toDataURL();
             console.log(dataURL);
+            message.channel.send(`=))`, { file: dataURL });
+            return;
         }
     }
     if(message.content ===".shelter"){
