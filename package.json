@@ -12,6 +12,7 @@
     "discord-money": "0.2.0",
     "sqlite3":"4.0.4",
     "firebase-admin":"6.4.0",
-    "cheerio":"1.0.0-rc.2"
+    "cheerio":"1.0.0-rc.2",
+    "canvas": "^2.3.1"
   }
 }
