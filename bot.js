@@ -8,6 +8,7 @@ var path = require('path');
 var Canvas = require('canvas');
 var Image = Canvas.Image;
 var currentDropCoin = 0;
+
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
 var admin = require("firebase-admin");
@@ -175,7 +176,7 @@ client.on('message', message => {
             ctx.font = '30px Arial';
             ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
             var dataURL = canvas.toDataURL();
-            message.channel.send(`=))`);
+            message.channel.send(`=))`, { file: dataURL });
             return;
         }
     }
