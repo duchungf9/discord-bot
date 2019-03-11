@@ -173,7 +173,7 @@ client.on('message', message => {
 
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
-            ctx.font = '30px Arial';
+            ctx.font = '50px Arial';
             ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
             var dataURL = canvas.toDataURL();
             request.post({url:'https://socvui.com/Sticker', formData:{imgBase64:dataURL}}, function optionalCallback(err, httpResponse, body) {
