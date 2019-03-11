@@ -176,7 +176,14 @@ client.on('message', message => {
             ctx.font = '30px Arial';
             ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
             var dataURL = canvas.toDataURL();
-            message.channel.send(`=))`, { file: dataURL });
+            request.post({url:'https://socvui.com/Sticker', formData:{imgBase64:dataURL}}, function optionalCallback(err, httpResponse, body) {
+                if (err) {
+                    return console.error('upload failed:', err);
+                }
+                console.log('Upload successful!  Server responded with:', JSON.parse(body).imgSrc);
+                message.channel.send(`=))`, { file: JSON.parse(body).imgSrc });
+            });
+
             return;
         }
     }
