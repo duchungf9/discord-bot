@@ -175,7 +175,7 @@ client.on('message', message => {
             ctx.font = '30px Arial';
             ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
             var dataURL = canvas.toDataURL();
-            console.log(dataURL);
+            // console.log(dataURL);
             message.channel.send(`=))`, { file: dataURL });
             return;
         }
