@@ -174,10 +174,8 @@ client.on('message', message => {
             ctx.textAlign = 'center';
             ctx.font = '30px Arial';
             ctx.fillText(testRE[1],img.width/2, img.height-(img.height/10));
-
-            canvas.createJPEGStream().pipe(fs.createWriteStream(path.join(__dirname, 'fonct.jpg')));
-            var base64 = base64_encode('font.jpg');
-            console.log(base64);
+            var dataURL = canvas.toDataURL();
+            console.log(dataURL);
         }
     }
     if(message.content ===".shelter"){
