@@ -445,16 +445,23 @@ function bet(message,currencyIcon){
     var arrayExplodedBySpace = stringContent.split(" ");
     console.log(arrayExplodedBySpace);
     if(typeof parseInt(arrayExplodedBySpace[1], 10) =='number'){
-        var value = arrayExplodedBySpace[1];
+        var value = parseInt(arrayExplodedBySpace[1], 10);
         var result =   Math.floor(Math.random() * 2) + 1;
         var usersRef = ref.child("users/"+message.author.id);
+        var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
+           if(value<parseInt(data, 10)){
+               message.channel.send({embed: {
+                       color: 3447003,
+                       description: message.author+" không đủ kim cương!!!",
+                   }});
+               return false;
+           }
+        });
         if(result==1){
-            console.log("win"+value);
-
             var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
               var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
               updateCurrency(parseInt(newCurrency, 10),usersRef);
-          });
+            });
           message.channel.send({embed: {
                   color: 3447003,
                   description: message.author+" đã kiếm được "+value+currencyIcon+" kim cương!!!",
