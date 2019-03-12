@@ -444,7 +444,7 @@ function bet(message,currencyIcon){
     var stringContent = message.content;
     var arrayExplodedBySpace = stringContent.split(" ");
     console.log(arrayExplodedBySpace);
-    if(typeof arrayExplodedBySpace[1] =='number'){
+    if(typeof parseInt(arrayExplodedBySpace[1], 10) =='number'){
         var value = arrayExplodedBySpace[1];
         var result =   Math.floor(Math.random() * 2) + 1;
         var usersRef = ref.child("users/"+message.author.id);
@@ -473,6 +473,7 @@ function bet(message,currencyIcon){
         }
     }else{
         console.log(typeof arrayExplodedBySpace[1]);
+        console.log(arrayExplodedBySpace[1]);
     }
 
 }
