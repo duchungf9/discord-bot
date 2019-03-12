@@ -446,7 +446,7 @@ function bet(message,currencyIcon){
     // console.log(arrayExplodedBySpace);
     arrayExplodedBySpace.forEach(function(key,value){
         // console.log(value);
-        if(isNaN(parseInt(value, 10))){
+        if(!isNaN(parseInt(value, 10))){
             var result =   Math.floor(Math.random() * 2) + 1;
             var usersRef = ref.child("users/"+message.author.id);
             if(result==1){
