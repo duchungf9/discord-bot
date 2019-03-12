@@ -443,9 +443,9 @@ function idleShelter(message){
 function bet(message,currencyIcon){
     var stringContent = message.content;
     var arrayExplodedBySpace = stringContent.split(" ");
-    console.log(arrayExplodedBySpace);
+    // console.log(arrayExplodedBySpace);
     arrayExplodedBySpace.forEach(function(key,value){
-        console.log(value);
+        // console.log(value);
         if(isNaN(parseInt(value, 10))){
             var result =   Math.floor(Math.random() * 2) + 1;
             var usersRef = ref.child("users/"+message.author.id);
@@ -468,6 +468,8 @@ function bet(message,currencyIcon){
                         description: message.author+" đã thua mất "+currencyIcon-value+" kim cương!!!",
                     }});
             }
+        }else{
+            console.log(typeof value);
         }
     });
 }
