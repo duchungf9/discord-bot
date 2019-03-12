@@ -448,39 +448,44 @@ function bet(message,currencyIcon){
         var value = parseInt(arrayExplodedBySpace[1], 10);
         var result =   Math.floor(Math.random() * 2) + 1;
         var usersRef = ref.child("users/"+message.author.id);
-        var validate = true;
-        var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-           if(value<parseInt(data, 10)){
-               validate = false;
-           }
-        });
-        if(validate==false){
-            message.channel.send({embed: {
-                    color: 3447003,
-                    description: message.author+" không đủ kim cương!!!",
-                }});
-            return false;
-        }
         if(result==1){
             var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-              var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
-              updateCurrency(parseInt(newCurrency, 10),usersRef);
+                if(value<parseInt(data, 10)){
+                    message.channel.send({embed: {
+                            color: 3447003,
+                            description: message.author+" không đủ kim cương!!!",
+                        }});
+                    return false;
+                }else{
+                    var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
+                    updateCurrency(parseInt(newCurrency, 10),usersRef);
+                    message.channel.send({embed: {
+                            color: 3447003,
+                            description: message.author+" đã kiếm được "+value+currencyIcon+" kim cương!!!",
+                        }});
+                }
             });
-          message.channel.send({embed: {
-                  color: 3447003,
-                  description: message.author+" đã kiếm được "+value+currencyIcon+" kim cương!!!",
-              }});
+
         }else{
             console.log("lose"+value);
 
             var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-                var newCurrency =  parseInt(data, 10)-parseInt(value, 10);
-                updateCurrency(parseInt(newCurrency, 10),usersRef);
+                if(value<parseInt(data, 10)){
+                    message.channel.send({embed: {
+                            color: 3447003,
+                            description: message.author+" không đủ kim cương!!!",
+                        }});
+                    return false;
+                }else{
+                    var newCurrency =  parseInt(data, 10)-parseInt(value, 10);
+                    updateCurrency(parseInt(newCurrency, 10),usersRef);
+                    message.channel.send({embed: {
+                            color: 3447003,
+                            description: message.author+" đã mất "+value+currencyIcon+" kim cương!!!",
+                        }});
+                }
+
             });
-            message.channel.send({embed: {
-                    color: 3447003,
-                    description: message.author+" đã thua mất "+value+currencyIcon+" kim cương!!!",
-                }});
         }
     }else{
         console.log(typeof arrayExplodedBySpace[1]);
