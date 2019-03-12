@@ -446,11 +446,13 @@ function bet(message,currencyIcon){
     // console.log(arrayExplodedBySpace);
     arrayExplodedBySpace.forEach(function(key,value){
         // console.log(value);
-        if(!isNaN(parseInt(value, 10))){
+        if(typeof value =='number'){
             var result =   Math.floor(Math.random() * 2) + 1;
             var usersRef = ref.child("users/"+message.author.id);
             if(result==1){
-              var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
+                console.log("win"+value);
+
+                var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
                   var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
                   updateCurrency(parseInt(newCurrency, 10),usersRef);
               });
@@ -459,6 +461,8 @@ function bet(message,currencyIcon){
                       description: message.author+" đã kiếm được "+value+currencyIcon+" kim cương!!!",
                   }});
             }else{
+                console.log("lose"+value);
+
                 var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
                     var newCurrency =  parseInt(data, 10)-parseInt(value, 10);
                     updateCurrency(parseInt(newCurrency, 10),usersRef);
