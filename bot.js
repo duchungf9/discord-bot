@@ -443,6 +443,7 @@ function idleShelter(message){
 function bet(message,currencyIcon){
     var stringContent = message.content;
     var arrayExplodedBySpace = stringContent.split(" ");
+    console.log(arrayExplodedBySpace);
     arrayExplodedBySpace.forEach(function(key,value){
         if(isNaN(value)){
             var result =   Math.floor(Math.random() * 2) + 1;
