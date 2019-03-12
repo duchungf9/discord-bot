@@ -72,6 +72,9 @@ client.on('message', message => {
     if(message.content.startsWith(".dt")){
         doiten(message,currencyIcon);
     }
+    if(message.content.startsWith(".bet")){
+        bet(message,currencyIcon);
+    }
     randomSip(message,currencyIcon);
 
     if(message.content === ".pick"){
@@ -437,8 +440,25 @@ function updateCurrency(amount,userRef){
 function idleShelter(message){
     message.channel.send(`*${message.author} https://playidleheroes.com/events/#Shelter`, { file: "https://media.discordapp.net/attachments/530448778982064128/538183280281911327/unknown.png" });
 }
-function bet(message){
-
+function bet(message,currencyIcon){
+    var stringContent = message.content;
+    var arrayExplodedBySpace = stringContent.split(" ");
+    arrayExplodedBySpace.forEach(function(key,value){
+        if(isNaN(value)){
+          var result =   Math.floor(Math.random() * 2) + 1;
+          if(result==1){
+              var usersRef = ref.child("users/"+message.author.id);
+              var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
+                  var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
+                  updateCurrency(parseInt(newCurrency, 10),usersRef);
+              });
+              message.channel.send({embed: {
+                      color: 3447003,
+                      description: message.author+" đã kiếm được "+value+currencyIcon+" kim cương!!!",
+                  }});
+          }
+        }
+    });
 }
 
 // function to encode file data to base64 encoded string
