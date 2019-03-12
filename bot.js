@@ -465,7 +465,7 @@ function bet(message,currencyIcon){
                 });
                 message.channel.send({embed: {
                         color: 3447003,
-                        description: message.author+" đã thua mất "+currencyIcon-value+" kim cương!!!",
+                        description: message.author+" đã thua mất "+value+currencyIcon+" kim cương!!!",
                     }});
             }
         }else{
