@@ -444,38 +444,37 @@ function bet(message,currencyIcon){
     var stringContent = message.content;
     var arrayExplodedBySpace = stringContent.split(" ");
     console.log(arrayExplodedBySpace);
-    arrayExplodedBySpace.forEach(function(key,value){
-        // console.log(value);
-        if(typeof value =='number'){
-            var result =   Math.floor(Math.random() * 2) + 1;
-            var usersRef = ref.child("users/"+message.author.id);
-            if(result==1){
-                console.log("win"+value);
+    if(typeof arrayExplodedBySpace[1] =='number'){
+        var value = arrayExplodedBySpace[1];
+        var result =   Math.floor(Math.random() * 2) + 1;
+        var usersRef = ref.child("users/"+message.author.id);
+        if(result==1){
+            console.log("win"+value);
 
-                var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-                  var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
-                  updateCurrency(parseInt(newCurrency, 10),usersRef);
-              });
-              message.channel.send({embed: {
-                      color: 3447003,
-                      description: message.author+" đã kiếm được "+value+currencyIcon+" kim cương!!!",
-                  }});
-            }else{
-                console.log("lose"+value);
-
-                var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-                    var newCurrency =  parseInt(data, 10)-parseInt(value, 10);
-                    updateCurrency(parseInt(newCurrency, 10),usersRef);
-                });
-                message.channel.send({embed: {
-                        color: 3447003,
-                        description: message.author+" đã thua mất "+value+currencyIcon+" kim cương!!!",
-                    }});
-            }
+            var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
+              var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
+              updateCurrency(parseInt(newCurrency, 10),usersRef);
+          });
+          message.channel.send({embed: {
+                  color: 3447003,
+                  description: message.author+" đã kiếm được "+value+currencyIcon+" kim cương!!!",
+              }});
         }else{
-            console.log(typeof value);
+            console.log("lose"+value);
+
+            var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
+                var newCurrency =  parseInt(data, 10)-parseInt(value, 10);
+                updateCurrency(parseInt(newCurrency, 10),usersRef);
+            });
+            message.channel.send({embed: {
+                    color: 3447003,
+                    description: message.author+" đã thua mất "+value+currencyIcon+" kim cương!!!",
+                }});
         }
-    });
+    }else{
+        console.log(typeof value);
+    }
+
 }
 
 // function to encode file data to base64 encoded string
