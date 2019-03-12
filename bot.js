@@ -472,7 +472,7 @@ function bet(message,currencyIcon){
                 }});
         }
     }else{
-        console.log(typeof value);
+        console.log(typeof arrayExplodedBySpace[1]);
     }
 
 }
