@@ -457,6 +457,8 @@ function bet(message,currencyIcon){
                         }});
                     return false;
                 }else{
+                    console.log(value);
+                    console.log(data);
                     var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
                     updateCurrency(parseInt(newCurrency, 10),usersRef);
                     message.channel.send({embed: {
@@ -477,6 +479,8 @@ function bet(message,currencyIcon){
                         }});
                     return false;
                 }else{
+                    console.log(value);
+                    console.log(data);
                     var newCurrency =  parseInt(data, 10)-parseInt(value, 10);
                     updateCurrency(parseInt(newCurrency, 10),usersRef);
                     message.channel.send({embed: {
