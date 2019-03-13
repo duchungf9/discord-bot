@@ -450,7 +450,7 @@ function bet(message,currencyIcon){
         var usersRef = ref.child("users/"+message.author.id);
         if(result==1){
             var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-                if(value<parseInt(data, 10)){
+                if(value>parseInt(data, 10)){
                     message.channel.send({embed: {
                             color: 3447003,
                             description: message.author+" không đủ kim cương!!!",
@@ -458,7 +458,7 @@ function bet(message,currencyIcon){
                     return false;
                 }else{
                     console.log(value);
-                    console.log(data);
+                    console.log(parseInt(data, 10));
                     var newCurrency =  parseInt(data, 10)+parseInt(value, 10);
                     updateCurrency(parseInt(newCurrency, 10),usersRef);
                     message.channel.send({embed: {
@@ -472,7 +472,7 @@ function bet(message,currencyIcon){
             console.log("lose"+value);
 
             var currentCurrency = getCurrentCurrency(usersRef).then(function(data){
-                if(value<parseInt(data, 10)){
+                if(value>parseInt(data, 10)){
                     message.channel.send({embed: {
                             color: 3447003,
                             description: message.author+" không đủ kim cương!!!",
@@ -480,7 +480,7 @@ function bet(message,currencyIcon){
                     return false;
                 }else{
                     console.log(value);
-                    console.log(data);
+                    console.log(parseInt(data, 10));
                     var newCurrency =  parseInt(data, 10)-parseInt(value, 10);
                     updateCurrency(parseInt(newCurrency, 10),usersRef);
                     message.channel.send({embed: {
