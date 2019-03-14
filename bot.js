@@ -29,7 +29,7 @@ const talkedRecently = new Set();
 client.on('message', message => {
     const swearWords = ["thật tuyệt", "tuyệt", "tuyệt hay"];
     const chuiBay = ["dmm","Dmm","dcmm","Dcmm","dit me may","Dit me may","dit con em may"];
-    const spamContent = ["https://cdn.discordapp.com/attachments/531764733074735104/550627791146713088/received_360307941085850.gif"];
+    const spamContent = ["https://cdn.discordapp.com/attachments/531764733074735104/550627791146713088/received_360307941085850.gif","rnM8XsuKi0M"];
     $userName = message.author;
     var soCurrency = "kimcuong";
     var currencyIcon = client.emojis.find(emoji=>emoji.name==soCurrency);
