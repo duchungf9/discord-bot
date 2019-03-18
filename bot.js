@@ -8,7 +8,11 @@ var path = require('path');
 var Canvas = require('canvas');
 var Image = Canvas.Image;
 var currentDropCoin = 0;
-
+var express = require("express");
+var app = express();
+app.get('/vietlot',function(req,res){
+    res.send('hello world');
+});
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
 var admin = require("firebase-admin");
