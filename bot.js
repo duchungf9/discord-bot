@@ -510,3 +510,5 @@ function base64_encode(file) {
     return new Buffer(bitmap).toString('base64');
 }
 client.login(process.env.BOT_TOKEN);
+app.listen(process.env.PORT || 5000);
+
