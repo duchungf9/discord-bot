@@ -11,10 +11,10 @@ var currentDropCoin = 0;
 var express = require("express");
 var app = express();
 app.get('/vietlot',function(req,res){
-    request('https://vietlott.vn/', function (err, res, body)
+    request('https://xosodaiphat.com/xsmb-xo-so-mien-bac.html', function (err, res, body)
     {
         var $ = cheerio.load(body);
-        var giaidacbiet = $($(".so_tien")[0]).find('h3').text();
+        var giaidacbiet = $($(".special-prize-lg")[0]).text();
         res.send(giaidacbiet);
     });
 
