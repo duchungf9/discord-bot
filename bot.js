@@ -11,7 +11,13 @@ var currentDropCoin = 0;
 var express = require("express");
 var app = express();
 app.get('/vietlot',function(req,res){
-    res.send('hello world');
+    request('https://vietlott.vn/', function (err, res, body)
+    {
+        var $ = cheerio.load(body);
+        var giaidacbiet = $($(".so_tien")[0]).find('h3').text();
+        res.send(giaidacbiet);
+    });
+
 });
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
