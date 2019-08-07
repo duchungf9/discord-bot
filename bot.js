@@ -179,7 +179,7 @@ client.on('message', message => {
             console.log(testRE[1]); //is the matched group if found
             var img = new Image();
 
-            arrayImage = ["fun.jpg","baga.jpg"];
+            arrayImage = ["baga1.jpg","baga.jpg","baga2.jpg","baga3.jpg","baga4.jpg","baga5.jpg","baga6.jpg","baga7.jpg"];
             var index = Math.floor(Math.random() * arrayImage.length);
             img.src = arrayImage[index];
             var canvas = Canvas.createCanvas(img.width, img.height);
