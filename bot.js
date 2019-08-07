@@ -178,7 +178,10 @@ client.on('message', message => {
         {
             console.log(testRE[1]); //is the matched group if found
             var img = new Image();
-            img.src = 'fun.jpg';
+
+            arrayImage = ["fun.jpg","baga.jpg"];
+            var index = Math.floor(Math.random() * arrayImage.length);
+            img.src = arrayImage[index];
             var canvas = Canvas.createCanvas(img.width, img.height);
             var ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, img.width, img.height);
