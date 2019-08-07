@@ -168,8 +168,8 @@ client.on('message', message => {
     if(message.content.startsWith(".cheanh")){
         var stringContent = message.content;
 
-        var firstvariable = "aa ";
-        var secondvariable = " bb";
+        var firstvariable = "++ ";
+        var secondvariable = " ++";
         var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig"); //set ig flag for global search and case insensitive
 
         var testRE = regExString.exec(stringContent);
