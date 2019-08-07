@@ -198,6 +198,7 @@ client.on('message', message => {
                 }
                 console.log('Upload successful!  Server responded with:', JSON.parse(body).imgSrc);
                 message.channel.send(`=))`, { file: JSON.parse(body).imgSrc });
+                message.delete(1000);
             });
 
             return;
