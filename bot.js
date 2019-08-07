@@ -166,7 +166,7 @@ client.on('message', message => {
             tangSip(message,currencyIcon,arrayExplodedBySpace[1]);
         }
     }
-    if(message.content.startsWith(".cheanh")){
+    if(message.content.startsWith(".mm")){
         var stringContent = message.content;
 
         var firstvariable = "++ ";
