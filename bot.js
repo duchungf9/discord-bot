@@ -169,8 +169,8 @@ client.on('message', message => {
     if(message.content.startsWith(".mm")){
         var stringContent = message.content;
 
-        var firstvariable = "++ ";
-        var secondvariable = " ++";
+        var firstvariable = "s ";
+        var secondvariable = " e";
         var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig"); //set ig flag for global search and case insensitive
 
         var testRE = regExString.exec(stringContent);
