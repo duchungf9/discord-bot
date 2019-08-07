@@ -159,6 +159,7 @@ client.on('message', message => {
     }
     if(message.content.startsWith(".give")){
         var stringContent = message.content;
+        var a = "cailoa";
         var arrayExplodedBySpace = stringContent.split(" ");
         console.log(arrayExplodedBySpace);
         if(arrayExplodedBySpace.length == 3 && (message.author.username == 'loandet' || message.author.username =='duchungf9')){
