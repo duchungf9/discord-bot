@@ -31,7 +31,7 @@ console.log('-------');
 var db = admin.database();
 var ref = db.ref("/");
 client.on('ready', () => {
-    console.log('I am ready!');
+    console.log('I am ready!!');
 });
 const talkedRecently = new Set();
 
