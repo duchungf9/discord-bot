@@ -151,6 +151,10 @@ client.on('message', message => {
         }
         message.delete(2500);
     }
+    if(message.author.username == 'loandet'){
+        message.channel.send("Địt con mẹ mày Loan");
+        message.delete(2000);
+    }
     if(message.content === "mưa kim cương"){
         muaSip(message,currencyIcon,client);
     }
