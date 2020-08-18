@@ -6,7 +6,9 @@ var fs = require('fs');
 var path = require('path');
 var Canvas = require('canvas');
 var Image = Canvas.Image;
-var search = require('youtube-search');
+const yts = require( 'yt-search' )
+
+
 
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
@@ -39,19 +41,17 @@ var send_message = (message,text)=>{
     console.log(message.content);
     message.channel.send(text);
     message.delete(2000);
-    search_yt(`Mien cat trang`);
-};
-var search_yt = (search_text) =>{
-    var opts = {
-        maxResults: 1,
-        key: search_text
-    };
+    yts( 'superman theme', function ( err, r ) {
+        if ( err ) throw err
 
-    search('jsconf', opts, function(err, results) {
-        if(err) return console.log(err);
-        console.log(results);
-    });
+        const videos = r.videos
+        videos.forEach( function ( v ) {
+            const views = String( v.views ).padStart( 10, ' ' )
+            console.log( `${ views } | ${ v.title } (${ v.timestamp }) | ${ v.author.name }` )
+        } )
+    } );
 };
+
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
