@@ -64,5 +64,5 @@ channel.send(`Chào bé đến với SBTC nhaaa, ${member}, mãi yêu!`);
 });
 
 client.login(process.env.BOT_TOKEN);
-app.listen(process.env.PORT || 5000);
+// app.listen(process.env.PORT || 5000);
 
