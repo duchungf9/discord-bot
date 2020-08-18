@@ -38,12 +38,12 @@ client.on('message', message => {
 
 
     if(message.content === "hát 1 bài"){
-        message(`Điều anh thích là see em, đón lúc 10h PM`);
+        send_message(`Điều anh thích là see em, đón lúc 10h PM`);
     }
 
 });
 
-var message = (message,text)=>{
+var send_message = (message,text)=>{
     if (message.author.bot) return;
     console.log(message.content);
     message.channel.send(text);
