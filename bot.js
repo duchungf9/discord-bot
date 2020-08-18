@@ -41,7 +41,8 @@ client.on('message', message => {
         message.delete(2000);
     }
     if(message.content === "mưa kim cương"){
-        muaSip(message,currencyIcon,client);
+        message.channel.send("Mưa cc");
+        message.delete(2000);
     }
     if(message.content.startsWith(".km")){
         khoamom(message,currencyIcon);
