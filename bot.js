@@ -38,7 +38,7 @@ client.on('message', message => {
 
 
     if(message.content === "hát 1 bài"){
-        send_message(`Điều anh thích là see em, đón lúc 10h PM`);
+        send_message(message,`Điều anh thích là see em, đón lúc 10h PM`);
     }
 
 });
