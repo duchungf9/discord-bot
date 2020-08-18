@@ -35,16 +35,21 @@ client.on('ready', () => {
 const talkedRecently = new Set();
 
 client.on('message', message => {
-    console.log(message.content);
-    message.channel.send("Địt con mẹ mày Loan");
-    message.delete(2000);
 
-    if(message.content === "mưa kim cương"){
-        message.channel.send("Mưa cc");
-        message.delete(2000);
+
+    if(message.content === "hát 1 bài"){
+        message(`Điều anh thích là see em, đón lúc 10h PM`);
     }
 
 });
+
+var message = (message,text)=>{
+    if (message.author.bot) return;
+    console.log(message.content);
+    message.channel.send(text);
+    message.delete(2000);
+};
+
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
