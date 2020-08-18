@@ -6,17 +6,8 @@ var fs = require('fs');
 var path = require('path');
 var Canvas = require('canvas');
 var Image = Canvas.Image;
-var currentDropCoin = 0;
-var express = require("express");
-var app = express();
-app.get('/vietlot',function(req,res){
-    request('http://bongdanet.vn/xo-so-vietlott', function (err, res, body)
-    {
-        var $ = cheerio.load(body);
-        var giaidacbiet = $($(".award-text")[0]).text();
-        res.send(giaidacbiet);
-    });
-});
+var search = require('youtube-search');
+
 console.log(process.env.BOT_TOKEN);
 console.log('-------');
 var admin = require("firebase-admin");
@@ -28,11 +19,11 @@ admin.initializeApp({
 });
 console.log('-------');
 var db = admin.database();
-var ref = db.ref("/");
+
 client.on('ready', () => {
     console.log('bot xong!!!');
 });
-const talkedRecently = new Set();
+
 
 client.on('message', message => {
 
@@ -48,8 +39,19 @@ var send_message = (message,text)=>{
     console.log(message.content);
     message.channel.send(text);
     message.delete(2000);
+    search_yt(`Mien cat trang`);
 };
+var search_yt = (search_text) =>{
+    var opts = {
+        maxResults: 1,
+        key: search_text
+    };
 
+    search('jsconf', opts, function(err, results) {
+        if(err) return console.log(err);
+        console.log(results);
+    });
+};
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
