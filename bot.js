@@ -36,9 +36,9 @@ client.on('ready', () => {
 const talkedRecently = new Set();
 
 client.on('message', message => {
-
-        message.channel.send("Địt con mẹ mày Loan");
-        message.delete(2000);
+    console.log(message.content);
+    message.channel.send("Địt con mẹ mày Loan");
+    message.delete(2000);
 
     if(message.content === "mưa kim cương"){
         message.channel.send("Mưa cc");
