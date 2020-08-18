@@ -36,16 +36,13 @@ client.on('ready', () => {
 const talkedRecently = new Set();
 
 client.on('message', message => {
-    if(message.author.username == 'loandet'){
+
         message.channel.send("Địt con mẹ mày Loan");
         message.delete(2000);
-    }
+
     if(message.content === "mưa kim cương"){
         message.channel.send("Mưa cc");
         message.delete(2000);
-    }
-    if(message.content.startsWith(".km")){
-        khoamom(message,currencyIcon);
     }
 
 });
