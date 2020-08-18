@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const money = require('discord-money');
 const client = new Discord.Client();
 const cheerio = require('cheerio');
 const request = require('request');
