@@ -42,13 +42,15 @@ var send_message = (message,text)=>{
     message.channel.send(text);
     message.delete(2000);
     yts( 'superman theme', function ( err, r ) {
-        if ( err ) throw err
+        if( err ){
+            console.log(err);
+        }
 
-        const videos = r.videos
+        var videos = r.videos;
         videos.forEach( function ( v ) {
-            const views = String( v.views ).padStart( 10, ' ' )
-            console.log( `${ views } | ${ v.title } (${ v.timestamp }) | ${ v.author.name }` )
-        } )
+            var views = String( v.views ).padStart( 10, ' ' )
+            console.log( `${ views } | ${ v.title } (${ v.timestamp }) | ${ v.author.name }` );
+        } );
     } );
 };
 
