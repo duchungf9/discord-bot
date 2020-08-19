@@ -23,7 +23,7 @@ console.log('-------');
 var db = admin.database();
 
 client.on('ready', () => {
-    console.log('bot xong!!!');
+    console.log('đã bot xong!!!');
 });
 
 
